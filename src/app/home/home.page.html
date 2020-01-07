@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <ion-card (click)="put()">
+        <ion-card-header>
+          <ion-label>site Installation</ion-label>
+          <ion-thumbnail>
+            <img style="align-items: center;" id="pic" src="../assets/22.jpg">
+          </ion-thumbnail>
+          <!-- <ion-card-subtitle>site Installation</ion-card-subtitle>
+          <ion-card-title>New site Installation</ion-card-title> -->
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card (click)="put1()">
+        <ion-card-header>
+          <ion-label>list of services</ion-label>
+          <ion-thumbnail style="align-items: center;">
+            <img id="pic" src="../assets/4988604621_008a9079ca_o-1.jpg">
+          </ion-thumbnail>
+          <!-- <ion-card-subtitle>list of services</ion-card-subtitle>
+          <ion-card-title>services offered</ion-card-title> -->
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card> 
+    </ion-slide>
+    <ion-slide>
+      <ion-card (click)="put2()">
+        <ion-card-header>
+          <ion-label>list of services</ion-label>
+          <ion-thumbnail>
+            <img id="pic" src="../assets/bmw-e12-sahara-beige-bbs.jpg">
+          </ion-thumbnail>
+          <!-- <ion-card-subtitle>list of services</ion-card-subtitle>
+          <ion-card-title>services offered</ion-card-title> -->
+        </ion-card-header>
+      
+        <ion-card-content>
+          Keep close to Nature's heart... and break clear away, once in awhile,
+          and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <div class="ion-padding">
+     
+    <ion-item *ngFor="let x of array" (click)="clicked(x)">
+
+    <!-- {{x.name}} {{x.price}} {{x.type}} -->
+    {{x.electrical}} {{x.engineering}} -- {{x.key}}
+      <br>
+      {{x.khokho}}
+  </ion-item>
+  </div>
+</ion-content>

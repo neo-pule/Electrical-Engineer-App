@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card >
+    <ion-card-header>
+      
+      <ion-thumbnail>
+        <img style="align-items: center;" id="pic" src="../assets/22.jpg">
+      </ion-thumbnail>
+      <ion-card-title>{{subject}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <h4>Hello world</h4>
+      <ion-label>{{service}}</ion-label>
+     <p>{{body}}</p>
+    </ion-card-content>
+    <ion-button slot="end" (click)="next1()">Request service</ion-button>
+  </ion-card>
+</ion-content>
