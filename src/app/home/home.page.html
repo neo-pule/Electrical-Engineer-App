@@ -1,73 +1,70 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- <ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Home
+        </ion-title>
+    </ion-toolbar>
+</ion-header> -->
 
 <ion-content>
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-      <ion-card (click)="put()">
-        <ion-card-header>
-          <ion-label>site Installation</ion-label>
-          <ion-thumbnail>
-            <img style="align-items: center;" id="pic" src="../assets/22.jpg">
-          </ion-thumbnail>
-          <!-- <ion-card-subtitle>site Installation</ion-card-subtitle>
-          <ion-card-title>New site Installation</ion-card-title> -->
-        </ion-card-header>
-      
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card (click)="put1()">
-        <ion-card-header>
-          <ion-label>list of services</ion-label>
-          <ion-thumbnail style="align-items: center;">
-            <img id="pic" src="../assets/4988604621_008a9079ca_o-1.jpg">
-          </ion-thumbnail>
-          <!-- <ion-card-subtitle>list of services</ion-card-subtitle>
-          <ion-card-title>services offered</ion-card-title> -->
-        </ion-card-header>
-      
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-        </ion-card-content>
-      </ion-card> 
-    </ion-slide>
-    <ion-slide>
-      <ion-card (click)="put2()">
-        <ion-card-header>
-          <ion-label>list of services</ion-label>
-          <ion-thumbnail>
-            <img id="pic" src="../assets/bmw-e12-sahara-beige-bbs.jpg">
-          </ion-thumbnail>
-          <!-- <ion-card-subtitle>list of services</ion-card-subtitle>
-          <ion-card-title>services offered</ion-card-title> -->
-        </ion-card-header>
-      
-        <ion-card-content>
-          Keep close to Nature's heart... and break clear away, once in awhile,
-          and climb a mountain or spend a week in the woods. Wash your spirit clean.
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
-  <div class="ion-padding">
-     
-    <ion-item *ngFor="let x of array" (click)="clicked(x)">
 
-    <!-- {{x.name}} {{x.price}} {{x.type}} -->
-    {{x.electrical}} {{x.engineering}} -- {{x.key}}
-      <br>
-      {{x.khokho}}
-  </ion-item>
-  </div>
+    <div>
+        <ion-card class="header">
+            <img src="assets\logo.PNG" />
+
+
+        </ion-card>
+    </div>
+    <br>
+    <div class="cat">
+        <h4>Categories</h4>
+    </div>
+    <div *ngFor="let cat of items" class="category-block">
+
+        <ion-row no-padding class="category-banner">
+            <ion-col no-padding button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
+
+            </ion-col>
+        </ion-row>
+
+        <ion-slides [options]="sliderConfig">
+
+            <ion-slide *ngFor="let product of cat.products" (click)="put1()">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title>
+
+                        </ion-card-title>
+                        <ion-card-content>
+                            <img src="/assets/wireman.png">
+
+                        </ion-card-content>
+                    </ion-card-header>
+                </ion-card>
+
+            </ion-slide>
+
+
+        </ion-slides>
+    </div>
+
+
+    <div class="ion-padding">
+
+        <ion-item *ngFor="let x of array" (click)="clicked(x)">
+
+            <!-- {{x.name}} {{x.price}} {{x.type}} -->
+            {{x.electrical}} {{x.engineering}} -- {{x.key}}
+            <br> {{x.khokho}}
+        </ion-item>
+    </div>
+
+    <br>
+
+    <div class="icons" style="text-align: center;">
+        <img src="https://img.icons8.com/carbon-copy/50/000000/phone.png">-----
+        <img src="https://img.icons8.com/carbon-copy/50/000000/facebook-new.png">----
+        <img src="https://img.icons8.com/dotty/50/000000/important-mail.png">
+    </div>
+
 </ion-content>

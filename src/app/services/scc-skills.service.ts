@@ -7,6 +7,8 @@ import {AngularFirestoreDocument} from '@angular/fire/firestore';
 })
 export class SCCSkillsService {
 
+  
+
   item : any =  {
     khokho : [],
     electrical : "",
@@ -15,13 +17,38 @@ export class SCCSkillsService {
 
     private itemDoc: AngularFirestoreDocument<Item>; // < *class_name* >
 writePost;
+private booking=[];
+private data=[{
+  category:'pizza',
+  expended: true,
+  products: [
+    {id:0,name:'salami',price:'1'},
+    {id:1,name:'salami',price:'2'},
+    {id:2,name:'salami',price:'3'},
+  
+
+  ]
+
+},
+
+];
 
   constructor(private dog : AngularFirestore) { 
     // s
   }
 
 
-
+  getProducts(){
+    return this.data
+  }
+  
+  getBooking(){
+    return this.booking;
+  }
+  
+  addProduct(products){
+    this.booking.push(products);
+  }
 
   post(item,alert) {
 

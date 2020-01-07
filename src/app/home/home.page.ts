@@ -17,6 +17,14 @@ slideOpts = {
   initialSlide: 1,
   speed: 400
 };
+
+sliderConfig = {
+  spaceBetween:1,
+  centeredSlides: true,
+  slidesPerView: 1.6
+
+}
+
   constructor(private list : SCCSkillsService,private route : Router) {
     //  const things = this.afs.collection('services/').valueChanges();
     //    things.subscribe((data) =>{
@@ -42,9 +50,17 @@ put1(){
     //         });
     //         console.log(this.array)
     // });
+
+    this.booking=this.list.getBooking();
+    this.items=this.list.getProducts();
+  }
+
+  addToCart(products){
+    this.list.addProduct(products);
+  }
 }
 // openCart(){
 //   this.router.navigate(['nextpage'])
 // }
 
-}
+
