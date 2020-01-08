@@ -30,17 +30,12 @@
 
         <ion-slides [options]="sliderConfig">
 
-            <ion-slide *ngFor="let product of cat.products" (click)="put1()">
+            <ion-slide *ngFor="let product of cat.products" (click)="presentModal()">
                 <ion-card>
-                    <ion-card-header>
-                        <ion-card-title>
 
-                        </ion-card-title>
-                        <ion-card-content>
-                            <img src="/assets/wireman.png">
+                    <img src="assets/cardbg.jpg">
 
-                        </ion-card-content>
-                    </ion-card-header>
+
                 </ion-card>
 
             </ion-slide>

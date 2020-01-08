@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.eletrical.engineer.app",
+  "appName": "electrical.engineer.app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

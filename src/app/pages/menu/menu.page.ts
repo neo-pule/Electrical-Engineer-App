@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { SCCSkillsService } from '../../services/scc-skills.service';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -14,7 +15,7 @@ export class MenuPage implements OnInit {
  obj :any;
  arr;
 
-  constructor(private route : Router,private list : SCCSkillsService) { 
+  constructor(private route : Router,private list : SCCSkillsService,private modalCtrl:ModalController) { 
     this.obj = this.list.getInfo();
     this.obj.subscribe(data => {
       console.log(data);
@@ -22,9 +23,8 @@ export class MenuPage implements OnInit {
       console.log(this.arr);
     })
   }
-
   next(){
-    this.route.navigateByUrl('info');
+    this.route.navigateByUrl('/info');
     // this.route.navigate(['info'], {queryParams : {subject : this.subject,service : this.service, message : this.message}});
   }
   Put(){
@@ -40,6 +40,15 @@ export class MenuPage implements OnInit {
   }
   ngOnInit() {
   
+  }
+
+  
+  dismiss() {
+    // using the injected ModalController this page
+    // can "dismiss" itself and optionally pass back data
+    this.modalCtrl.dismiss({
+      'dismissed': true
+    });
   }
 
 }

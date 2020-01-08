@@ -1,7 +1,5 @@
 ion-content {
     overflow-y: hidden;
-    margin: 0px;
-    padding: 0px;
     // --background: rgb(212, 100, 100);
     div {
         top: 0;
@@ -30,7 +28,7 @@ ion-card {
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
-    background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.911)0%, rgb(29, 1, 1) 100%) !important;
+    // background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.712)0%, rgba(29, 1, 1, 0.712) 100%) !important;
     color: white;
 }
 
