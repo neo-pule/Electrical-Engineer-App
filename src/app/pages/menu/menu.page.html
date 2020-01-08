@@ -15,15 +15,15 @@
     </div>
 
     <p>menu lists services</p>
-
+    <ion-button (click)="Put()">try</ion-button>
     <ion-list>
-        <ion-item (click)="next()">
+        <ion-item *ngFor="let cat of arr">
             <ion-thumbnail slot="start">
                 <img src="../assets/22.jpg">
             </ion-thumbnail>
             <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
+                <h4>cat.name</h4>
+                <p>cat.description</p>
             </ion-label>
         </ion-item>
 

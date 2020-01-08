@@ -12,21 +12,34 @@ export class MenuPage implements OnInit {
  service : string;
 
  obj :any;
+ arr;
 
-  constructor(private route : Router,private list : SCCSkillsService) { }
+  constructor(private route : Router,private list : SCCSkillsService) { 
+    this.obj = this.list.getInfo();
+    this.obj.subscribe(data => {
+      console.log(data);
+      this.arr = data;
+      console.log(this.arr);
+    })
+  }
 
   next(){
     this.route.navigateByUrl('info');
     // this.route.navigate(['info'], {queryParams : {subject : this.subject,service : this.service, message : this.message}});
   }
+  Put(){
+    console.log(this.arr);
+  }
   getData(){
     this.list.getInfo().subscribe(data => {
       console.log(data);
       this.obj = data;
+      console.log(this.obj);
     })
    console.log("new install")
   }
   ngOnInit() {
+  
   }
 
 }

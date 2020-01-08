@@ -5,7 +5,24 @@
 </ion-header>
 
 <ion-content>
-<ion-button (click)="signUp()">sign Up</ion-button>
-<ion-button (click)="signIn()">sign In</ion-button>
+
+<ion-card>
+
+  <ion-card-content>
+    <form class="form-inline" >
+      
+      <ion-input type="email" id="email"  name="email" position="stacked">Email</ion-input>
+      <!-- <ion-label for="Password">Password:</ion-label> -->
+      <ion-input position="floating" type="Password" id="Password"  name="Password" >Password</ion-input>
+      <!-- <label for="pwd">Password:</label>
+      <input type="password" id="pwd" placeholder="Enter password" name="pswd">
+      <label> 
+        <input type="checkbox" name="remember"> Remember me
+      </label> -->
+      <ion-button (click)="signIn()">Sign In</ion-button>
+      <ion-button (click)="signUp()">Sign Up</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>
 
 </ion-content>
