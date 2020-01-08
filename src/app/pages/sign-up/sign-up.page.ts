@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService,Feature } from '../../services/map.service';
+import { Plugins, CameraResultType } from '@capacitor/core';
+const { Camera } = Plugins;
 
 @Component({
   selector: 'app-sign-up',
@@ -7,6 +9,7 @@ import { MapService,Feature } from '../../services/map.service';
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
+  
   addresses = [];
   coordinates = [];
   list;
@@ -27,6 +30,21 @@ export class SignUpPage implements OnInit {
     } else {
       this.addresses = [];
     }
+  }
+
+  async takePicture() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri
+    });
+    // image.webPath will contain a path that can be set as an image src. 
+    // You can access the original file using image.path, which can be 
+    // passed to the Filesystem API to read the raw data of the image, 
+    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
+    var imageUrl = image.webPath;
+    // Can be set to the src of an image now
+    // imageElement.src = imageUrl;
   }
   ngOnInit() {
   }
