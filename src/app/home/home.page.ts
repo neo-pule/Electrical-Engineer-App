@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SCCSkillsService } from '../services/scc-skills.service';
 
 import { Router } from '@angular/router';
+import { MenuPage } from '../pages/menu/menu.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+
+  
 
   booking=[];
   items=[];
@@ -25,10 +29,11 @@ sliderConfig = {
 
 }
 
-  constructor(private list : SCCSkillsService,private route : Router) {
+  constructor(public modalController: ModalController,private list : SCCSkillsService,private route : Router) {
     //  const things = this.afs.collection('services/').valueChanges();
     //    things.subscribe((data) =>{
     //      console.log(data)});
+    
   }
 put(){
  console.log("new install")
@@ -58,9 +63,26 @@ put1(){
   addToCart(products){
     this.list.addProduct(products);
   }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: MenuPage,
+      componentProps: {
+        
+      }
+    });
+    return await modal.present();
+  }
+
+  nextPage()
+{
+  this.route.navigateByUrl('/menu');
+}
+  
 }
 // openCart(){
 //   this.router.navigate(['nextpage'])
 // }
+
 
 
