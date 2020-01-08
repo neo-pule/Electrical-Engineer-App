@@ -35,7 +35,7 @@ writePost;
     }
 
     getInfo(){
-      return this.dog.collection('services').snapshotChanges();
+      return this.dog.collection('services').valueChanges();
     }
     update(item){
 

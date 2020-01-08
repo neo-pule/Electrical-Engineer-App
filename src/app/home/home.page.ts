@@ -3,6 +3,7 @@ import { SCCSkillsService } from '../services/scc-skills.service';
 
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -23,6 +24,9 @@ slideOpts = {
     //      console.log(data)});
   }
 put(){
+  this.list.getInfo().subscribe(data => {
+    console.log(data);
+  })
  console.log("new install")
 }
 put1(){

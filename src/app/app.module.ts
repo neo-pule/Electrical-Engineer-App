@@ -15,7 +15,6 @@ import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
-
 const firebaseConfig = {
   apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
   authDomain: "eletrical-engineer-cms.firebaseapp.com",
