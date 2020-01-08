@@ -1,74 +1,77 @@
 <ion-content>
-  
-  <div class="container">
-    <ion-card >
-    <form>
-      <br>
-    <ion-item lines="none">
-      <ion-label position="floating">Name</ion-label>
-      <ion-input id="input" ></ion-input>
-    </ion-item>
+    <div>
+
+        <ion-card class="header" (click)="dismiss()">
+            <!-- <img src="assets\logo.PNG" /> -->
+            <h2>Sign-up</h2>
+
+        </ion-card>
+    </div>
+
     <br>
-        <ion-item >
-          <ion-label position="floating">Surname</ion-label>
-          <ion-input id="input" ></ion-input>
+
+    <form>
+        <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" clearInput></ion-input>
         </ion-item>
         <br>
-        <ion-item >
-          <ion-label position="floating">Email</ion-label>
-        <ion-input id="input" ></ion-input>
-      </ion-item>
-      <br>
-      <!-- <ion-item lines="none">
-        <ion-input id="input" position="floating">location</ion-input>
-      </ion-item> -->
-      <ion-item color="transparent" class="group">
-        <ion-label position="floating">Address</ion-label>
-        <ion-input type="text" (ionInput)="search($event)" [value]="selectedAddress" clearInput></ion-input>
-    </ion-item>
-    <div style="position: absolute; max-width: 90%; min-width: 90%; z-index: 999; " class="search">
-      <ion-list lines="none" *ngIf="addresses.length > 0" color="lightb" style="background: var(--ion-item-background,var(--ion-background-color, black)); ">
-          <ion-item *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)" color="dark">
-              <ion-icon name="pin"></ion-icon>
-              <p class="searchv">{{ address}}</p>
-          </ion-item>
-      </ion-list>
-    </div>
-      <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Surname</ion-label>
+            <ion-input type="text" clearInput></ion-input>
+        </ion-item>
+        <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" clearInput></ion-input>
+        </ion-item>
+        <br>
+        <!-- <ion-item lines="none">
+      <ion-input id="input" position="floating">location</ion-input>
+    </ion-item> -->
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Address</ion-label>
+            <ion-input type="text" (ionInput)="search($event)" [value]="selectedAddress" clearInput></ion-input>
+        </ion-item>
+        <div style="position: absolute; max-width: 90%; min-width: 90%; z-index: 999; " class="search">
+            <ion-list lines="none" *ngIf="addresses.length > 0" color="lightb" style="background: var(--ion-item-background,var(--ion-background-color, black)); ">
+                <ion-item *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)" color="dark">
+                    <ion-icon name="pin"></ion-icon>
+                    <p class="searchv">{{ address}}</p>
+                </ion-item>
+            </ion-list>
+        </div>
+        <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Number</ion-label>
+            <ion-input type="text" clearInput></ion-input>
+        </ion-item>
+        <br>
         <ion-item lines="none">
-          <ion-label position="floating">Number</ion-label>
-        <ion-input id="input"></ion-input>
-      </ion-item >
-      <br>
-        <ion-item lines="none">
-        <ion-label  position="floating">Provinces</ion-label>
-    <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-      <ion-select-option value="brown">Gauteng</ion-select-option>
-      <ion-select-option value="blonde">Mpumalanga</ion-select-option>
-      <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
-      <ion-select-option value="red">Western Cape</ion-select-option>
-      <ion-select-option value="red">Northren Cape</ion-select-option>
-      <ion-select-option value="red">North West</ion-select-option>
-      <ion-select-option value="red">Limpopo</ion-select-option>
-      <ion-select-option value="red">Eastern Cape</ion-select-option>
-     
-    </ion-select>
-     </ion-item>
-     <br>
-     <ion-item>
-      <div class="button">
-        <!-- <ion-button (click)="input.click()">open file</ion-button> -->
-        <ion-icon name="images" (click)="input.click()"></ion-icon>
-      <input style="display: none" type="file" (change)="onUpload($event)" #input  value="article.imageUrl">
-    </div>
-    <ion-icon name="camera" (click)="takePicture()" ></ion-icon>
-     </ion-item>
-     <br>
-      <div class="row">
-        <input type="submit" value="Submit">
-      </div>
+            <ion-label>Location</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="brown">Gauteng</ion-select-option>
+                <ion-select-option value="blonde">Mpumalanga</ion-select-option>
+                <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
+                <ion-select-option value="red">Western Cape</ion-select-option>
+                <ion-select-option value="red">Northren Cape</ion-select-option>
+                <ion-select-option value="red">North West</ion-select-option>
+                <ion-select-option value="red">Limpopo</ion-select-option>
+                <ion-select-option value="red">Eastern Cape</ion-select-option>
+
+            </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+            <div class="button">
+                <!-- <ion-button (click)="input.click()">open file</ion-button> -->
+                <ion-icon name="camera" (click)="takePicture()"></ion-icon>
+                <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input value="article.imageUrl"> -->
+            </div>
+            <!-- <ion-icon name="images" (click)="photo()"></ion-icon> -->
+        </ion-item>
+
     </form>
-  </ion-card>
-  </div>
-  
+    <ion-button expand="block" fill="outline" (click)=" signUp()">Submit</ion-button>
 </ion-content>

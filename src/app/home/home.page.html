@@ -19,7 +19,7 @@
     <div class="cat">
         <h4>Categories</h4>
     </div>
-    <ion-button (click)="put()">try</ion-button>
+
     <div *ngFor="let cat of items" class="category-block">
 
         <ion-row no-padding class="category-banner">
@@ -31,7 +31,7 @@
         <ion-slides [options]="sliderConfig">
 
             <ion-slide *ngFor="let product of cat.products" (click)="presentModal()">
-                <ion-card>
+                <ion-card class="slide1">
 
                     <img src="assets/cardbg.jpg">
 
@@ -53,6 +53,11 @@
             {{x.electrical}} {{x.engineering}} -- {{x.key}}
             <br> {{x.khokho}}
         </ion-item>
+    </div>
+
+
+    <div class="feedback">
+        <p>Feedback</p>
     </div>
 
     <br>

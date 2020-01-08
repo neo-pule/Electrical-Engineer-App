@@ -1,35 +1,40 @@
 <ion-content>
-  <div>
+    <div>
 
-    <ion-card class="header" (click)="dismiss()">
-        <!-- <img src="assets\logo.PNG" /> -->
-        <h2>index</h2>
+        <ion-card class="header" (click)="dismiss()">
+            <!-- <img src="assets\logo.PNG" /> -->
+            <h2>index</h2>
 
+        </ion-card>
+    </div>
+
+    <ion-card>
+
+        <ion-card-content>
+            <form class="form-inline">
+
+                <ion-item color="transparent" class="group">
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input type="text" clearInput></ion-input>
+                </ion-item>
+
+
+                <ion-item color="transparent" class="group">
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input type="text" clearInput></ion-input>
+                </ion-item>
+
+
+
+
+            </form>
+        </ion-card-content>
     </ion-card>
-</div>
 
-<ion-card>
 
-  <ion-card-content>
-    <form class="form-inline" >
-      
-      <ion-input type="email" id="email"  name="email" position="stacked">Email</ion-input>
-      <!-- <ion-label for="Password">Password:</ion-label> -->
-      <ion-input position="floating" type="Password" id="Password"  name="Password" >Password</ion-input>
-      <!-- <label for="pwd">Password:</label>
-      <input type="password" id="pwd" placeholder="Enter password" name="pswd">
-      <label> 
-        <input type="checkbox" name="remember"> Remember me
-      </label> -->
-      <ion-button (click)="signIn()">Sign In</ion-button>
-      <ion-button (click)="signUp()">Sign Up</ion-button>
-    </form>
-  </ion-card-content>
-</ion-card>
 
-   
 
-    <br>
-    <br>
- 
+
+    <ion-button expand="block" fill="outline" (click)=" signIn()">Sign In</ion-button>
+    <ion-button expand="block" fill="outline" (click)=" signUp()">Sign Up</ion-button>
 </ion-content>
