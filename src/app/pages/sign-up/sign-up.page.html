@@ -1,58 +1,77 @@
 <ion-content>
-
     <div>
 
         <ion-card class="header" (click)="dismiss()">
             <!-- <img src="assets\logo.PNG" /> -->
-            <h2>SignUp</h2>
+            <h2>Sign-up</h2>
 
         </ion-card>
     </div>
 
     <br>
-    <br>
 
-    <div class="container">
-        <form action="action_page.php">
-            <div class="row">
-                <div class="col-25">
-                    <ion-label for="fname">First Name</ion-label>
-                </div>
-                <div class="col-75">
-                    <ion-input type="text" id="fname" name="firstname" placeholder="Your name.."></ion-input>
-                </div>
+    <form>
+        <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Name</ion-label>
+            <ion-input type="text" clearInput></ion-input>
+        </ion-item>
+        <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Surname</ion-label>
+            <ion-input type="text" clearInput></ion-input>
+        </ion-item>
+        <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" clearInput></ion-input>
+        </ion-item>
+        <br>
+        <!-- <ion-item lines="none">
+      <ion-input id="input" position="floating">location</ion-input>
+    </ion-item> -->
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Address</ion-label>
+            <ion-input type="text" (ionInput)="search($event)" [value]="selectedAddress" clearInput></ion-input>
+        </ion-item>
+        <div style="position: absolute; max-width: 90%; min-width: 90%; z-index: 999; " class="search">
+            <ion-list lines="none" *ngIf="addresses.length > 0" color="lightb" style="background: var(--ion-item-background,var(--ion-background-color, black)); ">
+                <ion-item *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)" color="dark">
+                    <ion-icon name="pin"></ion-icon>
+                    <p class="searchv">{{ address}}</p>
+                </ion-item>
+            </ion-list>
+        </div>
+        <br>
+        <ion-item color="transparent" class="group">
+            <ion-label position="floating">Number</ion-label>
+            <ion-input type="text" clearInput></ion-input>
+        </ion-item>
+        <br>
+        <ion-item lines="none">
+            <ion-label>Location</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="brown">Gauteng</ion-select-option>
+                <ion-select-option value="blonde">Mpumalanga</ion-select-option>
+                <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
+                <ion-select-option value="red">Western Cape</ion-select-option>
+                <ion-select-option value="red">Northren Cape</ion-select-option>
+                <ion-select-option value="red">North West</ion-select-option>
+                <ion-select-option value="red">Limpopo</ion-select-option>
+                <ion-select-option value="red">Eastern Cape</ion-select-option>
+
+            </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+            <div class="button">
+                <!-- <ion-button (click)="input.click()">open file</ion-button> -->
+                <ion-icon name="camera" (click)="input.click()"></ion-icon>
+                <input style="display: none" type="file" (change)="onUpload($event)" #input value="article.imageUrl">
             </div>
-            <div class="row">
-                <div class="col-25">
-                    <ion-label for="lname">Last Name</ion-label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="country">Country</label>
-                </div>
-                <div class="col-75">
-                    <select id="country" name="country">
-            <option value="australia">Australia</option>
-            <option value="canada">Canada</option>
-            <option value="usa">USA</option>
-          </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="subject">Subject</label>
-                </div>
-                <div class="col-75">
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
-    </div>
+            <!-- <ion-icon name="images" (click)="photo()"></ion-icon> -->
+        </ion-item>
+
+    </form>
+    <ion-button expand="block" fill="outline" (click)=" signUp()">Submit</ion-button>
 </ion-content>

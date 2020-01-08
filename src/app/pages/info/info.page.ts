@@ -1,7 +1,9 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { Router} from '@angular/router';
-import { ActivatedRoute } from '@angular/router'
-
+import { ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { PopoverController } from '@ionic/angular';
+import { IndexPage } from '../../pages/index/index.page';
 @Component({
   selector: 'app-info',
   templateUrl: './info.page.html',
@@ -15,10 +17,24 @@ export class InfoPage implements OnInit {
 temp;
 temp1;
 temp2;
-  constructor(private addr : ActivatedRoute, private route : Router) { }
+  constructor(public popoverController: PopoverController,private addr : ActivatedRoute, private route : Router,private modalCtrl:ModalController) { }
 
 next1(){
   this.route.navigateByUrl('index');
+}
+async presentModal() {
+  const modal = await this.modalCtrl.create({
+    component: IndexPage
+  });
+  return await modal.present();
+}
+async presentPopover(ev: any) {
+  const popover = await this.popoverController.create({
+    component: IndexPage,
+    event: ev,
+    translucent: true
+  });
+  return await popover.present();
 }
 
   ngOnInit() {

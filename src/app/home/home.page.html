@@ -19,6 +19,7 @@
     <div class="cat">
         <h4>Categories</h4>
     </div>
+
     <div *ngFor="let cat of items" class="category-block">
 
         <ion-row no-padding class="category-banner">
@@ -30,7 +31,7 @@
         <ion-slides [options]="sliderConfig">
 
             <ion-slide *ngFor="let product of cat.products" (click)="presentModal()">
-                <ion-card>
+                <ion-card class="slide1">
 
                     <img src="assets/cardbg.jpg">
 
@@ -54,6 +55,11 @@
         </ion-item>
     </div>
 
+
+    <div class="feedback">
+        <p>Feedback</p>
+    </div>
+
     <br>
 
     <div class="icons" style="text-align: center;">
@@ -61,7 +67,5 @@
         <img src="https://img.icons8.com/carbon-copy/50/000000/facebook-new.png">----
         <img src="https://img.icons8.com/dotty/50/000000/important-mail.png">
     </div>
-    <div>
-        <p>Feedback</p>
-    </div>
+
 </ion-content>

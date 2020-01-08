@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { SCCSkillsService } from '../../services/scc-skills.service';
 import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-menu',
@@ -11,13 +12,34 @@ export class MenuPage implements OnInit {
  message : string;
  service : string;
 
-  constructor(private route : Router,private modalCtrl:ModalController) { }
+ obj :any;
+ arr;
 
+  constructor(private route : Router,private list : SCCSkillsService,private modalCtrl:ModalController) { 
+    this.obj = this.list.getInfo();
+    this.obj.subscribe(data => {
+      console.log(data);
+      this.arr = data;
+      console.log(this.arr);
+    })
+  }
   next(){
     this.route.navigateByUrl('/info');
     // this.route.navigate(['info'], {queryParams : {subject : this.subject,service : this.service, message : this.message}});
   }
+  Put(){
+    console.log(this.arr);
+  }
+  getData(){
+    this.list.getInfo().subscribe(data => {
+      console.log(data);
+      this.obj = data;
+      console.log(this.obj);
+    })
+   console.log("new install")
+  }
   ngOnInit() {
+  
   }
 
   

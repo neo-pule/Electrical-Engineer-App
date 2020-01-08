@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MenuPage } from '../pages/menu/menu.page';
 import { ModalController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -36,6 +37,9 @@ sliderConfig = {
     
   }
 put(){
+  this.list.getInfo().subscribe(data => {
+    console.log(data);
+  })
  console.log("new install")
 }
 put1(){

@@ -1,5 +1,4 @@
 <ion-content>
-
     <div>
 
         <ion-card class="header" (click)="dismiss()">
@@ -9,9 +8,33 @@
         </ion-card>
     </div>
 
-    <br>
-    <br>
-    <ion-button (click)="signUp()">sign Up</ion-button>
-    <ion-button (click)="signIn()">sign In</ion-button>
+    <ion-card>
 
+        <ion-card-content>
+            <form class="form-inline">
+
+                <ion-item color="transparent" class="group">
+                    <ion-label position="floating">Email</ion-label>
+                    <ion-input type="text" clearInput></ion-input>
+                </ion-item>
+
+
+                <ion-item color="transparent" class="group">
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input type="text" clearInput></ion-input>
+                </ion-item>
+
+
+
+
+            </form>
+        </ion-card-content>
+    </ion-card>
+
+
+
+
+
+    <ion-button expand="block" fill="outline" (click)=" signIn()">Sign In</ion-button>
+    <ion-button expand="block" fill="outline" (click)=" signUp()">Sign Up</ion-button>
 </ion-content>

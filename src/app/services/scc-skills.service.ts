@@ -62,7 +62,7 @@ private data=[{
     }
 
     getInfo(){
-      return this.dog.collection('services').snapshotChanges();
+      return this.dog.collection('course/').valueChanges();
     }
     update(item){
 
