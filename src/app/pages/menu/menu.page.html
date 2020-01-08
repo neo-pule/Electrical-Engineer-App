@@ -6,15 +6,15 @@
 
 <ion-content>
 <p>menu lists services</p>
-
-<ion-list>
-  <ion-item (click)="next()">
+<ion-button (click)="getData()">Push</ion-button>
+<ion-list *ngFor="let cat of obj">
+  <ion-item (click)="getData()">
     <ion-thumbnail slot="start">
       <img src="../assets/22.jpg">
     </ion-thumbnail>
     <ion-label>
-      <h4>Thumbnail chaos</h4>
-      <p>success ..</p>
+      <h4>cat.electrical</h4>
+      <p>cat.engineering</p>
     </ion-label>
   </ion-item>
 
