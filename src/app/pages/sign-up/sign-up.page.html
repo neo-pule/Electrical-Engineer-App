@@ -10,68 +10,130 @@
 
     <br>
 
-    <form>
-        <br>
-        <ion-item color="transparent" class="group">
-            <ion-label position="floating">Name</ion-label>
-            <ion-input type="text" clearInput></ion-input>
-        </ion-item>
-        <br>
-        <ion-item color="transparent" class="group">
-            <ion-label position="floating">Surname</ion-label>
-            <ion-input type="text" clearInput></ion-input>
-        </ion-item>
-        <br>
-        <ion-item color="transparent" class="group">
-            <ion-label position="floating">Email</ion-label>
-            <ion-input type="text" clearInput></ion-input>
-        </ion-item>
-        <br>
-        <!-- <ion-item lines="none">
-      <ion-input id="input" position="floating">location</ion-input>
-    </ion-item> -->
-        <ion-item color="transparent" class="group">
-            <ion-label position="floating">Address</ion-label>
-            <ion-input type="text" (ionInput)="search($event)" [value]="selectedAddress" clearInput></ion-input>
-        </ion-item>
-        <div style="position: absolute; max-width: 90%; min-width: 90%; z-index: 999; " class="search">
-            <ion-list lines="none" *ngIf="addresses.length > 0" color="lightb" style="background: var(--ion-item-background,var(--ion-background-color, black)); ">
-                <ion-item *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)" color="dark">
-                    <ion-icon name="pin"></ion-icon>
-                    <p class="searchv">{{ address}}</p>
-                </ion-item>
-            </ion-list>
-        </div>
-        <br>
-        <ion-item color="transparent" class="group">
-            <ion-label position="floating">Number</ion-label>
-            <ion-input type="text" clearInput></ion-input>
-        </ion-item>
-        <br>
-        <ion-item lines="none">
-            <ion-label>Location</ion-label>
-            <ion-select value="brown" okText="Okay" cancelText="Dismiss">
-                <ion-select-option value="brown">Gauteng</ion-select-option>
-                <ion-select-option value="blonde">Mpumalanga</ion-select-option>
-                <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
-                <ion-select-option value="red">Western Cape</ion-select-option>
-                <ion-select-option value="red">Northren Cape</ion-select-option>
-                <ion-select-option value="red">North West</ion-select-option>
-                <ion-select-option value="red">Limpopo</ion-select-option>
-                <ion-select-option value="red">Eastern Cape</ion-select-option>
+    <form [formGroup]="register" class="my-form">
+        <div class="forms">
+            <!-- 
+            <div class="form"> -->
 
-            </ion-select>
-        </ion-item>
-        <br>
-        <ion-item>
-            <div class="button">
-                <!-- <ion-button (click)="input.click()">open file</ion-button> -->
-                <ion-icon name="camera" (click)="takePicture()"></ion-icon>
-                <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input value="article.imageUrl"> -->
+
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Name</ion-label>
+                <ion-input type="text" formControlName="Name" required></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="register.get('Name').hasError('required') && register.get('Name').touched">
+                Please input your Name
             </div>
-            <!-- <ion-icon name="images" (click)="photo()"></ion-icon> -->
-        </ion-item>
+            <div class="error" *ngIf="register.get('Name').hasError('minlength') && register.get('Name').touched">
+                Minimum 4 characters
+            </div>
+            <div class="error" *ngIf="register.get('Name').hasError('maxlength') && register.get('Name').touched">
+                Maximum 30 characters
+            </div>
 
+
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Surname</ion-label>
+                <ion-input type="text" formControlName="Surname" required></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="register.get('Surname').hasError('required') && register.get('Surname').touched">
+                Please input your Surname
+            </div>
+            <div class="error" *ngIf="register.get('Surname').hasError('minlength') && register.get('Surname').touched">
+                Minimum 4 characters
+            </div>
+            <div class="error" *ngIf="register.get('Surname').hasError('maxlength') && register.get('Surname').touched">
+                Maximum 30 characters
+            </div>
+
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="register.get('email').hasError('required') && register.get('email').touched">
+                Please input your email
+            </div>
+            <div class="error" *ngIf="register.get('email').hasError('pattern') && register.get('email').touched">
+                Email address invalid
+            </div>
+
+
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Address</ion-label>
+                <ion-input type="text" formControlName="address"></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="register.get('address').hasError('required') && register.get('address').touched">
+                Please input your address
+            </div>
+
+            <br>
+
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="register.get('password').hasError('required') && register.get('password').touched">
+                Please input your password
+            </div>
+
+            <div class="error" *ngIf="register.get('password').hasError('minlength') && register.get('password').touched">
+                Minimum 6 characters
+            </div>
+
+            <div class="error" *ngIf="register.get('password').hasError('maxlength') && register.get('password').touched">
+                Maximum 12 characters
+            </div>
+
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Confirm Password</ion-label>
+                <ion-input type="password" formControlName="cpassword"></ion-input>
+            </ion-item>
+
+            <div class="error" *ngIf="register.get('cpassword').hasError('required') && register.get('cpassword').touched">
+                please confirm you passowrd
+            </div>
+
+            <div class="error" *ngIf="register.get('cpassword').hasError('minlength') && register.get('cpassword').touched">
+                Minimum 6 characters
+            </div>
+
+            <div class="error" *ngIf="register.get('cpassword').hasError('maxlength') && register.get('cpassword').touched">
+                Maximum 12 characters
+            </div>
+
+            <div class="error" *ngIf="register.get('cpassword').hasError('mustMatch') ">Passwords must match</div>
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Number</ion-label>
+                <ion-input type="text" clearInput></ion-input>
+            </ion-item>
+            <br>
+            <ion-item lines="none">
+                <ion-label>Location</ion-label>
+                <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+                    <ion-select-option value="brown">Gauteng</ion-select-option>
+                    <ion-select-option value="blonde">Mpumalanga</ion-select-option>
+                    <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
+                    <ion-select-option value="red">Western Cape</ion-select-option>
+                    <ion-select-option value="red">Northren Cape</ion-select-option>
+                    <ion-select-option value="red">North West</ion-select-option>
+                    <ion-select-option value="red">Limpopo</ion-select-option>
+                    <ion-select-option value="red">Eastern Cape</ion-select-option>
+
+                </ion-select>
+            </ion-item>
+            <br>
+            <ion-item>
+                <div class="button">
+                    <!-- <ion-button (click)="input.click()">open file</ion-button> -->
+                    <ion-icon name="camera" (click)="takePicture()"></ion-icon>
+                    <!-- <input style="display: none" type="file" (change)="onUpload($event)" #input value="article.imageUrl"> -->
+                </div>
+                <!-- <ion-icon name="images" (click)="photo()"></ion-icon> -->
+            </ion-item>
+
+
+        </div>
     </form>
+
     <ion-button expand="block" fill="outline" (click)=" signUp()">Submit</ion-button>
+
 </ion-content>
