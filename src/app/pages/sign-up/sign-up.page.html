@@ -1,7 +1,8 @@
 <ion-content>
     <div>
 
-        <ion-card class="header" (click)="dismiss()">
+        <ion-card class="header" >
+            <ion-icon name="arrow-round-back"  (click)="back()" style="background-color: white;zoom: 1.5;"></ion-icon>
             <!-- <img src="assets\logo.PNG" /> -->
             <h2>Sign-up</h2>
 
@@ -73,5 +74,5 @@
         </ion-item>
 
     </form>
-    <ion-button expand="block" fill="outline" (click)=" signUp()">Submit</ion-button>
+    <ion-button expand="block" fill="outline" (click)="back()">Submit</ion-button>
 </ion-content>

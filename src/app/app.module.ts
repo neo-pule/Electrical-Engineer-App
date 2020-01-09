@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { IndexPageModule } from '../app/pages/index/index.module';
 import { MenuPageModule } from '../app/pages/menu/menu.module';
+import { MapPageModule } from '../app/pages/map/map.module';
 const firebaseConfig = {
   apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
   authDomain: "eletrical-engineer-cms.firebaseapp.com",
@@ -41,7 +42,8 @@ firebase.initializeApp(firebaseConfig);
         HttpClientModule,
         AngularFirestoreModule,
         IndexPageModule,
-        MenuPageModule
+        MenuPageModule,
+        MapPageModule
     ],
   providers: [
     StatusBar,

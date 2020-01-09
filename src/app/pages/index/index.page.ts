@@ -17,7 +17,9 @@ signUp(){
   this.route.navigateByUrl('sign-up');
   console.log("sign Up page");
 }
-
+back(){
+  this.route.navigateByUrl('/info');
+}
   ngOnInit() {
   }
 

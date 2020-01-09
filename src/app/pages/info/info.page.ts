@@ -22,6 +22,9 @@ temp2;
 next1(){
   this.route.navigateByUrl('index');
 }
+back(){
+  this.route.navigateByUrl('/menu');
+}
 async presentModal() {
   const modal = await this.modalCtrl.create({
     component: IndexPage

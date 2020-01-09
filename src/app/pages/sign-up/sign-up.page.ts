@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService,Feature } from '../../services/map.service';
+import { Router } from '@angular/router';
 import { Plugins, CameraResultType } from '@capacitor/core';
 const { Camera } = Plugins;
 
@@ -13,7 +14,7 @@ export class SignUpPage implements OnInit {
   addresses = [];
   coordinates = [];
   list;
-  constructor(private mapboxService :MapService) { }
+  constructor(private mapboxService :MapService,private route : Router) { }
 
   // sign up users in firebase [ collection ]
 
@@ -31,7 +32,9 @@ export class SignUpPage implements OnInit {
       this.addresses = [];
     }
   }
-
+  back(){
+    this.route.navigateByUrl('/index');
+  }
   async takePicture() {
     const image = await Camera.getPhoto({
       quality: 90,
