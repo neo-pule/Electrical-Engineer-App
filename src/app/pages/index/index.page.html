@@ -9,33 +9,39 @@
         </ion-card>
     </div>
 
-    <ion-card>
+    <form [formGroup]="loginForm">
+        <div class="forms">
 
-        <ion-card-content>
-            <form class="form-inline">
+            <br>
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched">
+                Please input your email
+            </div>
+            <div class="error" *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').touched">
+                Email address invalid
+            </div>
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+                Please input your password
+            </div>
+            <div class="error" *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+                Minimum 6 characters
+            </div>
+            <div class="error" *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
+                Maximum 12 characters
+            </div>
+            <br>
+            <ion-button expand="block" color="primary" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
+            <ion-button expand="block" fill="outline" (click)=" signUp()">Sign Up</ion-button>
+            <!-- <p (click)="forgotpassword()">Forgot Password</p>
+                <p (click)="registerPage()"> Dont have account? Sign Up</p> -->
+        </div>
 
-                <ion-item color="transparent" class="group">
-                    <ion-label position="floating">Email</ion-label>
-                    <ion-input type="text" clearInput></ion-input>
-                </ion-item>
-
-
-                <ion-item color="transparent" class="group">
-                    <ion-label position="floating">Password</ion-label>
-                    <ion-input type="text" clearInput></ion-input>
-                </ion-item>
-
-
-
-
-            </form>
-        </ion-card-content>
-    </ion-card>
-
-
-
-
-
-    <ion-button expand="block" fill="outline" (click)=" signIn()">Sign In</ion-button>
-    <ion-button expand="block" fill="outline" (click)=" signUp()">Sign Up</ion-button>
+    </form>
 </ion-content>

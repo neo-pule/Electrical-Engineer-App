@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-index',
   templateUrl: './index.page.html',
@@ -7,7 +8,18 @@ import { Router } from '@angular/router';
 })
 export class IndexPage implements OnInit {
 
-  constructor( private route : Router) { }
+  public loginForm: FormGroup;
+
+
+  constructor( private route : Router,private fb: FormBuilder) {
+
+    this.loginForm = fb.group({
+      email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(12), Validators.required])],
+    });
+
+
+   }
 
 signIn(){
   this.route.navigateByUrl('sign-in');

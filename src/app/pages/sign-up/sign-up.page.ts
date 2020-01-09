@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MapService,Feature } from '../../services/map.service';
 import { Router } from '@angular/router';
 import { Plugins, CameraResultType } from '@capacitor/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 const { Camera } = Plugins;
 
 @Component({
@@ -10,12 +11,26 @@ const { Camera } = Plugins;
   styleUrls: ['./sign-up.page.scss'],
 })
 export class SignUpPage implements OnInit {
-  
+  register: FormGroup;
   addresses = [];
   coordinates = [];
   list;
-  constructor(private mapboxService :MapService,private route : Router) { }
+  constructor(private mapboxService :MapService,private fb: FormBuilder,private route : Router) {
 
+    this.register = fb.group({
+      Name: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30), Validators.required])],
+      Surname: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30),Validators.required])],
+      address: ['', Validators.required],
+      email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
+       password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(12), Validators.required])],
+       cpassword: ['', Validators.required]
+
+    }, {
+      //  validator: MustMatch('password', 'cpassword')
+    });
+  }
+
+   
   // sign up users in firebase [ collection ]
 
   search(event: any) {
