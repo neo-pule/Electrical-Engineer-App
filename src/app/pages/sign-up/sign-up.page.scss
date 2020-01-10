@@ -12,7 +12,16 @@ label {
     padding: 12px 12px 12px 0;
     display: inline-block;
 }
-
+#pic{
+    border-color: lightblue ;
+    border: solid;
+}
+#icon{
+    position: absolute;
+    zoom: 1.5;
+    top:70px;
+    left:36px;
+}
 input[type=submit] {
     background-color: #4CAF50;
     color: white;

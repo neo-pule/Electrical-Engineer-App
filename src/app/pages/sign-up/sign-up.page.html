@@ -9,6 +9,12 @@
         </ion-card>
     </div>
 
+    <div class="one">
+        <ion-avatar id="pic">
+            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+          </ion-avatar>
+          <ion-icon id="icon" name="add-circle-outline"></ion-icon>
+    </div>
     <br>
 
     <form [formGroup]="register" class="my-form">
@@ -134,5 +140,7 @@
 
         </div>
     </form>
+    <ion-button fill="outline" color="dark" (click)="input.click()" >upload a picture : <ion-icon  name="camera" fill="clear"></ion-icon></ion-button>
+      <input style="display: none" type="file" (change)="onUpload($event)" #input>
     <ion-button expand="block" fill="outline" (click)="back()">Submit</ion-button>
 </ion-content>

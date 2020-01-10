@@ -9,28 +9,24 @@
         </ion-card>
     </div>
     <ion-item>
-        <!-- <ion-label>DDDD MMM D, YYYY</ion-label> -->
-        <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2017" max="2022" value="2018-09-02"></ion-datetime>
+        <!-- <ion-label>DDDD MMM D, YYYY</ion-label>
+        <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2017" max="2022" value="2018-09-02"></ion-datetime> -->
       
-      </ion-item>
+	  </ion-item>
+	  <ion-button (click)="try()"> click </ion-button>
     <div class="container-contact100">
 	
 
 		<div class="wrap-contact100">
 			<div class="contact100-form-title" >
-				<!-- <span class="contact100-form-title-1">
-					Request Service
-                </span> -->
-                <ion-label position="stacked" >Request Service</ion-label>
-
-				<!-- <span class="contact100-form-title-2">
-					Feel free to drop us a line below!
-				</span> -->
+				
+				<ion-label position="stacked" >Request Service</ion-label>
+				
 			</div>
 
 			<form class="contact100-form validate-form">
 				<div class="wrap-input100 validate-input" >
-                    <ion-label position="floating" >Full Name:</ion-label>
+                    <ion-label position="floating" >Service Selected:</ion-label>
 					
 					<input class="input100" type="text" name="name" ><ion-icon name="navigate" style="zoom: 1.5;" (click)="presentModal()"></ion-icon>
 					<span class="focus-input100"></span>
@@ -38,21 +34,21 @@
 
 				<div class="wrap-input100 validate-input" >
                    
-                    <ion-label position="floating" >Email:</ion-label>
+                    <ion-label position="floating" >Price:</ion-label>
 					<input class="input100" type="text"placeholder="Your Comment..." name="email">
 					<span class="focus-input100"></span>
 				</div>
  
 				<div class="wrap-input100 validate-input" >
-                    
-                    <ion-label position="floating" >Phone:</ion-label>
-					<input class="input100" type="text" name="phone" >
+                            <ion-label>Date for requested service</ion-label>
+        <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2017" max="2022" value="2018-09-02"></ion-datetime>
+                
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" >
                     
-                    <ion-label position="floating" >Message:</ion-label>
+                    <ion-label position="floating" >Address:</ion-label>
 					<textarea class="input100" name="message" placeholder="Your Comment..."></textarea>
 					<span class="focus-input100"></span>
 				</div>

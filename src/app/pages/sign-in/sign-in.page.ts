@@ -26,8 +26,13 @@ export class SignInPage implements OnInit {
   temp1 : any;
   temp2 : any;
 
+  tym = Date();
+
   constructor(private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
     
+  }
+  try(){
+    console.log(this.tym)
   }
 
   async presentModal() {
