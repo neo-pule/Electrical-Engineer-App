@@ -24,7 +24,7 @@ export class MenuPage implements OnInit {
     })
   }
   next(){
-    this.route.navigateByUrl('/info');
+    this.route.navigateByUrl('/tab/info');
     // this.route.navigate(['info'], {queryParams : {subject : this.subject,service : this.service, message : this.message}});
   }
   back(){

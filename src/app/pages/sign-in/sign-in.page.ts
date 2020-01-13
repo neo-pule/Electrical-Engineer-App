@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { PopoverController } from '@ionic/angular';
 import { MapPage } from '../map/map.page';
+import { Router } from '@angular/router'
 import { MapService } from '../../services/map.service';
 // import { Subject } from 'rxjs';
 
@@ -28,7 +29,7 @@ export class SignInPage implements OnInit {
 
   tym = Date();
 
-  constructor(private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
+  constructor(private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
     
   }
   try(){
@@ -48,6 +49,10 @@ export class SignInPage implements OnInit {
       translucent: true
     });
     return await popover.present();
+  }
+  
+  take(){
+    this.route.navigateByUrl('tab/request');
   }
 
   ngOnInit() {

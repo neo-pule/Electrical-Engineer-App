@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>request</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tab/menu"></ion-back-button>
+  </ion-buttons>
+   
+    
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+
+<ion-content class="ion-padding">
+
+  <div class="card">
+    <div id="indicator"></div>
+    <h2> Client Name</h2>
+    <p>ref Number: 23498235259 </p>
+    <p>cost : R42</p>
+    <ion-row>
+        <ion-col>
+            <p>Date:</p>
+        </ion-col>
+        <ion-col>
+            <ion-fab  vertical="bottom" horizontal="end" >
+                <ion-fab-button (click)="information()"><ion-icon name="information"></ion-icon></ion-fab-button>
+              </ion-fab>
+        </ion-col>
+    </ion-row>
+</div>
+    
 </ion-content>

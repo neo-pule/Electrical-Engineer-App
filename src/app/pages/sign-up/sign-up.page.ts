@@ -98,7 +98,7 @@ export class SignUpPage implements OnInit {
     }
   }
   back(){
-    this.route.navigateByUrl('/index');
+    this.route.navigateByUrl('/tab/index');
   }
 
 

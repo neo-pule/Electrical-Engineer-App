@@ -19,6 +19,8 @@ import * as firebase from 'firebase';
 import { IndexPageModule } from '../app/pages/index/index.module';
 import { MenuPageModule } from '../app/pages/menu/menu.module';
 import { MapPageModule } from '../app/pages/map/map.module';
+import { TabPage } from '../app/pages/tab/tab.page';
+
 const firebaseConfig = {
   apiKey: "AIzaSyB83CuKn-QSuzzxN6X8l2L5UKqfeb2NjvA",
   authDomain: "eletrical-engineer-cms.firebaseapp.com",
@@ -35,7 +37,7 @@ firebase.initializeApp(firebaseConfig);
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,TabPage],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
         AngularFireAuthModule,
@@ -46,7 +48,8 @@ firebase.initializeApp(firebaseConfig);
         MenuPageModule,
         MapPageModule,
         FormsModule,
-        AngularFireStorageModule
+        AngularFireStorageModule,
+        
     ],
   providers: [
     StatusBar,

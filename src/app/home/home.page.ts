@@ -80,7 +80,7 @@ put1(){
 
   nextPage()
 {
-  this.route.navigateByUrl('/menu');
+  this.route.navigateByUrl('/tab/menu');
 }
   
 }

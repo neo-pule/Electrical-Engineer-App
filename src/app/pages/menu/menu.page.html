@@ -9,7 +9,9 @@
     <div>
        
         <ion-card class="header" (click)="dismiss()">
-            <ion-icon name="arrow-round-back"  (click)="back()" style="background-color: white;zoom: 1.5;"></ion-icon>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="home"></ion-back-button>
+            </ion-buttons>
             <!-- <img src="assets\logo.PNG" /> -->
             <h2>Service List</h2>
 
