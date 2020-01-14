@@ -27,7 +27,7 @@ export class SignInPage implements OnInit {
   temp1 : any;
   temp2 : any;
 
-  tym = Date();
+  tym;
 
   constructor(private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
     

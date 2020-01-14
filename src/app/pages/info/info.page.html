@@ -1,16 +1,15 @@
 <ion-content>
-
-    <div>
-
-        <ion-card class="header" (click)="dismiss()">
-            <ion-icon name="arrow-round-back" (click)="back()" style="background-color: white;zoom: 1.5;"></ion-icon>
-            <!-- <img src="assets\logo.PNG" /> -->
-            <h2>More Info</h2>
-
-        </ion-card>
+    <div class="tab">
+        
+        <ion-thumbnail>
+            <img style="align-items: center;" id="pic1" src="../assets/22.jpg">
+        </ion-thumbnail>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="tab/menu"></ion-back-button>
+        </ion-buttons>
     </div>
 
-    <ion-card>
+    <!-- <ion-card>
         <ion-card-header>
 
             <ion-thumbnail>
@@ -25,7 +24,7 @@
             <p>{{body}}</p>
         </ion-card-content>
 
-    </ion-card>
+    </ion-card> -->
 
-    <ion-button expand="block" fill="outline" (click)=" next1()">Request service</ion-button>
+    <ion-button expand="block" fill="outline" id="btn" (click)=" next1()">Request service</ion-button>
 </ion-content>

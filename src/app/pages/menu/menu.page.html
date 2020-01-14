@@ -8,7 +8,7 @@
 
     <div>
        
-        <ion-card class="header" (click)="dismiss()">
+        <ion-card class="header">
             <ion-buttons slot="start">
                 <ion-back-button defaultHref="home"></ion-back-button>
             </ion-buttons>
@@ -17,9 +17,6 @@
 
         </ion-card>
     </div>
-
-    <p>menu lists services</p>
-
 
     <ion-list>
         <ion-item *ngFor="let cat of arr">
@@ -32,7 +29,7 @@
             </ion-label>
         </ion-item>
 
-        <ion-item (click)="next()" (click)="dismiss()">
+        <ion-item (click)="next()" >
             <ion-thumbnail slot="start">
                 <img src="../assets/4988604621_008a9079ca_o-1.jpg">
             </ion-thumbnail>
