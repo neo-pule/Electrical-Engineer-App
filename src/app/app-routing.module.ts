@@ -9,16 +9,17 @@ const routes: Routes = [
     path: 'sign-up',
     loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
-  {
-    path: 'sign-in',
-    loadChildren: () => import('./pages/sign-in/sign-in.module').then( m => m.SignInPageModule)
-  },
+
  
   {
     path: 'tab', component : TabPage, children : [
       {
         path: 'request',
         loadChildren: () => import('./pages/request/request.module').then( m => m.RequestPageModule)
+      },
+      {
+        path: 'sign-in',
+        loadChildren: () => import('./pages/sign-in/sign-in.module').then( m => m.SignInPageModule)
       },
       {
         path: 'menu',
@@ -38,8 +39,13 @@ const routes: Routes = [
         path: 'map',
         loadChildren: () => import('./pages/map/map.module').then( m => m.MapPageModule)
       },
+      {
+        path: 'profile',
+        loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+      },
     ]
   },
+ 
 
 ];
 
