@@ -22,7 +22,7 @@ export class IndexPage implements OnInit {
    }
 
 signIn(){
-  this.route.navigateByUrl('sign-in');
+  this.route.navigateByUrl('tab/sign-in');
   console.log("sign In page");
 }
 signUp(){
