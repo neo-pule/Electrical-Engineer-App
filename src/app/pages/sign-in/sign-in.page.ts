@@ -5,6 +5,7 @@ import { PopoverController } from '@ionic/angular';
 import { MapPage } from '../map/map.page';
 import { Router } from '@angular/router'
 import { MapService } from '../../services/map.service';
+import * as moment from "moment";
 // import { Subject } from 'rxjs';
 
 
@@ -33,7 +34,7 @@ export class SignInPage implements OnInit {
     
   }
   try(){
-    console.log(this.tym)
+    console.log(moment(this.tym).calendar());
   }
 
   async presentModal() {

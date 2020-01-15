@@ -6,6 +6,7 @@ import { AngularFireStorageModule,  } from '@angular/fire/storage';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import * as moment from "moment";
 
 // 1. Import the libs you need
 import { AngularFireModule } from '@angular/fire';
