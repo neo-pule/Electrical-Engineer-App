@@ -1,153 +1,132 @@
 <ion-content>
-    <div>
-
-        <ion-card class="header" >
+    <div class="main">
+        <div class="top">
             <ion-buttons slot="start">
                 <ion-back-button defaultHref="index"></ion-back-button>
             </ion-buttons>
             <!-- <img src="assets\logo.PNG" /> -->
             <h2>Sign-up</h2>
+        </div>
+        <div class="middle">
+            <form [formGroup]="register" class="my-form" (submit)="run()()">
+                <div class="forms">
+                    <ion-item color="transparent" class="group">
+                        <ion-label position="floating">Name</ion-label>
+                        <ion-input type="text" formControlName="Name" required [(ngModel)]="user.name"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="register.get('Name').hasError('required') && register.get('Name').touched">
+                        Please input your Name
+                    </div>
+                    <div class="error" *ngIf="register.get('Name').hasError('minlength') && register.get('Name').touched">
+                        Minimum 4 characters
+                    </div>
+                    <div class="error" *ngIf="register.get('Name').hasError('maxlength') && register.get('Name').touched">
+                        Maximum 30 characters
+                    </div>
 
-        </ion-card>
+
+                    <ion-item color="transparent" class="group">
+                        <ion-label position="floating">Surname</ion-label>
+                        <ion-input type="text" formControlName="Surname" required [(ngModel)]="user.surname"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="register.get('Surname').hasError('required') && register.get('Surname').touched">
+                        Please input your Surname
+                    </div>
+                    <div class="error" *ngIf="register.get('Surname').hasError('minlength') && register.get('Surname').touched">
+                        Minimum 4 characters
+                    </div>
+                    <div class="error" *ngIf="register.get('Surname').hasError('maxlength') && register.get('Surname').touched">
+                        Maximum 30 characters
+                    </div>
+
+                    <ion-item color="transparent" class="group">
+                        <ion-label position="floating">Email</ion-label>
+                        <ion-input type="email" formControlName="email" [(ngModel)]="user.email"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="register.get('email').hasError('required') && register.get('email').touched">
+                        Please input your email
+                    </div>
+                    <div class="error" *ngIf="register.get('email').hasError('pattern') && register.get('email').touched">
+                        Email address invalid
+                    </div>
+
+
+                    <ion-item color="transparent" class="group">
+                        <ion-label position="floating">Address</ion-label>
+                        <ion-input type="text" formControlName="address" [(ngModel)]="user.address"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="register.get('address').hasError('required') && register.get('address').touched">
+                        Please input your address
+                    </div>
+
+                    <br>
+
+                    <ion-item color="transparent" class="group">
+                        <ion-label position="floating">Password</ion-label>
+                        <ion-input type="password" formControlName="password" [(ngModel)]="user.pass"></ion-input>
+                    </ion-item>
+                    <div class="error" *ngIf="register.get('password').hasError('required') && register.get('password').touched">
+                        Please input your password
+                    </div>
+
+                    <div class="error" *ngIf="register.get('password').hasError('minlength') && register.get('password').touched">
+                        Minimum 6 characters
+                    </div>
+
+                    <div class="error" *ngIf="register.get('password').hasError('maxlength') && register.get('password').touched">
+                        Maximum 12 characters
+                    </div>
+
+                    <ion-item color="transparent" class="group">
+                        <ion-label position="floating">Confirm Password</ion-label>
+                        <ion-input type="password" formControlName="cpassword"></ion-input>
+                    </ion-item>
+
+                    <div class="error" *ngIf="register.get('cpassword').hasError('required') && register.get('cpassword').touched">
+                        please confirm you passowrd
+                    </div>
+
+                    <div class="error" *ngIf="register.get('cpassword').hasError('minlength') && register.get('cpassword').touched">
+                        Minimum 6 characters
+                    </div>
+
+                    <div class="error" *ngIf="register.get('cpassword').hasError('maxlength') && register.get('cpassword').touched">
+                        Maximum 12 characters
+                    </div>
+
+                    <div class="error" *ngIf="register.get('cpassword').hasError('mustMatch') ">Passwords must match</div>
+                    <ion-item color="transparent" class="group">
+                        <ion-label position="floating">Number</ion-label>
+                        <ion-input type="text" formControlName="number" [(ngModel)]="user.number"></ion-input>
+                    </ion-item>
+                    <br>
+                    <ion-item lines="none" color="transparent">
+                        <ion-label class="group">Location</ion-label>
+                        <ion-select class="group" value="brown" okText="Okay" cancelText="Dismiss">
+                            <ion-select-option value="brown">Gauteng</ion-select-option>
+                            <ion-select-option value="blonde">Mpumalanga</ion-select-option>
+                            <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
+                            <ion-select-option value="red">Western Cape</ion-select-option>
+                            <ion-select-option value="red">Northren Cape</ion-select-option>
+                            <ion-select-option value="red">North West</ion-select-option>
+                            <ion-select-option value="red">Limpopo</ion-select-option>
+                            <ion-select-option value="red">Eastern Cape</ion-select-option>
+
+                        </ion-select>
+                    </ion-item>
+                </div>
+                <!-- <ion-button color="transparent"expand="full" fill="outline" (click)="back()" color="light">Submit</ion-button> -->
+                <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="run()">Submit</ion-button>
+
+                <!-- <p style="text-align: center;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p> -->
+
+            </form>
+        </div>
     </div>
 
-    <!-- <div class="one">
-        <ion-avatar id="pic">
-            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-          </ion-avatar>
-          <ion-icon id="icon" name="add-circle-outline"></ion-icon>
-    </div> -->
-    <br>
 
-    <form [formGroup]="register" class="my-form" (submit)="run()()">
-        <div class="forms">
-            <!-- 
-            <div class="form"> -->
-
-
-            <ion-item color="transparent" class="group">
-                <ion-label position="floating">Name</ion-label>
-                <ion-input type="text" formControlName="Name" required [(ngModel)]="user.name"></ion-input>
-            </ion-item>
-            <div class="error" *ngIf="register.get('Name').hasError('required') && register.get('Name').touched">
-                Please input your Name
-            </div>
-            <div class="error" *ngIf="register.get('Name').hasError('minlength') && register.get('Name').touched">
-                Minimum 4 characters
-            </div>
-            <div class="error" *ngIf="register.get('Name').hasError('maxlength') && register.get('Name').touched">
-                Maximum 30 characters
-            </div>
-
-
-            <ion-item color="transparent" class="group">
-                <ion-label position="floating">Surname</ion-label>
-                <ion-input type="text" formControlName="Surname" required [(ngModel)]="user.surname"></ion-input>
-            </ion-item>
-            <div class="error" *ngIf="register.get('Surname').hasError('required') && register.get('Surname').touched">
-                Please input your Surname
-            </div>
-            <div class="error" *ngIf="register.get('Surname').hasError('minlength') && register.get('Surname').touched">
-                Minimum 4 characters
-            </div>
-            <div class="error" *ngIf="register.get('Surname').hasError('maxlength') && register.get('Surname').touched">
-                Maximum 30 characters
-            </div>
-
-            <ion-item color="transparent" class="group">
-                <ion-label position="floating">Email</ion-label>
-                <ion-input type="email" formControlName="email" [(ngModel)]="user.email"></ion-input>
-            </ion-item>
-            <div class="error" *ngIf="register.get('email').hasError('required') && register.get('email').touched">
-                Please input your email
-            </div>
-            <div class="error" *ngIf="register.get('email').hasError('pattern') && register.get('email').touched">
-                Email address invalid
-            </div>
-
-
-            <ion-item color="transparent" class="group">
-                <ion-label position="floating">Address</ion-label>
-                <ion-input type="text" formControlName="address" [(ngModel)]="user.address"></ion-input>
-            </ion-item>
-            <div class="error" *ngIf="register.get('address').hasError('required') && register.get('address').touched">
-                Please input your address
-            </div>
-
-            <br>
-
-            <ion-item color="transparent" class="group">
-                <ion-label position="floating">Password</ion-label>
-                <ion-input type="password" formControlName="password" [(ngModel)]="user.pass"></ion-input>
-            </ion-item>
-            <div class="error" *ngIf="register.get('password').hasError('required') && register.get('password').touched">
-                Please input your password
-            </div>
-
-            <div class="error" *ngIf="register.get('password').hasError('minlength') && register.get('password').touched">
-                Minimum 6 characters
-            </div>
-
-            <div class="error" *ngIf="register.get('password').hasError('maxlength') && register.get('password').touched">
-                Maximum 12 characters
-            </div>
-
-            <ion-item color="transparent" class="group">
-                <ion-label position="floating">Confirm Password</ion-label>
-                <ion-input type="password" formControlName="cpassword"></ion-input>
-            </ion-item>
-
-            <div class="error" *ngIf="register.get('cpassword').hasError('required') && register.get('cpassword').touched">
-                please confirm you passowrd
-            </div>
-
-            <div class="error" *ngIf="register.get('cpassword').hasError('minlength') && register.get('cpassword').touched">
-                Minimum 6 characters
-            </div>
-
-            <div class="error" *ngIf="register.get('cpassword').hasError('maxlength') && register.get('cpassword').touched">
-                Maximum 12 characters
-            </div>
-
-            <div class="error" *ngIf="register.get('cpassword').hasError('mustMatch') ">Passwords must match</div>
-            <ion-item color="transparent" class="group">
-                <ion-label position="floating">Number</ion-label>
-                <ion-input type="text" formControlName="number" [(ngModel)]="user.number"></ion-input>
-            </ion-item>
-            <br>
-            <ion-item lines="none">
-                <ion-label>Location</ion-label>
-                <ion-select value="brown" okText="Okay" cancelText="Dismiss" >
-                    <ion-select-option value="brown">Gauteng</ion-select-option>
-                    <ion-select-option value="blonde">Mpumalanga</ion-select-option>
-                    <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
-                    <ion-select-option value="red">Western Cape</ion-select-option>
-                    <ion-select-option value="red">Northren Cape</ion-select-option>
-                    <ion-select-option value="red">North West</ion-select-option>
-                    <ion-select-option value="red">Limpopo</ion-select-option>
-                    <ion-select-option value="red">Eastern Cape</ion-select-option>
-
-                </ion-select>
-            </ion-item>
-            <br>
-         
-                <!-- <div class="button">
-                     <ion-button (click)="input.click()">open file</ion-button> ->
-                    <ion-icon name="camera" (click)="takePicture()"></ion-icon>
-                    -- <input style="display: none" type="file" (change)="onUpload($event)" #input value="article.imageUrl"> ->
-                </div> -->
-                <!-- <ion-icon name="images" (click)="photo()"></ion-icon> -->
-        
-
-
-        </div>
-        <ion-button expand="block" fill="outline" (click)="run()">Submit</ion-button>
-   
-    <p style="text-align: center;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p>
-    
-    </form>
     <!-- <ion-button fill="outline" color="dark" (click)="input.click()" >upload a picture : <ion-icon  name="camera" fill="clear"></ion-icon></ion-button>
       <input style="display: none" type="file" (change)="onUpload($event)" #input> -->
-    
-    
+
+
 </ion-content>
