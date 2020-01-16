@@ -45,7 +45,14 @@ ion-content {
     margin: 0px;
     padding: 0px;
     // --background: rgb(212, 100, 100);
+    form{
+      position: relative;
+      top: 50%;
+transform: translateY(-50%);
+margin: 30px;
+    }
     div {
+      // display: none;
         top: 0;
         margin: 0px;
         padding: 0px;

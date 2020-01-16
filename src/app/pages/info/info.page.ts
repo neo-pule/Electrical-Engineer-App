@@ -20,7 +20,7 @@ temp2;
   constructor(public popoverController: PopoverController,private addr : ActivatedRoute, private route : Router,private modalCtrl:ModalController) { }
 
 next1(){
-  this.route.navigateByUrl('tab/index');
+  this.route.navigateByUrl('/index');
 }
 back(){
   this.route.navigateByUrl('/menu');

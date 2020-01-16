@@ -3,10 +3,12 @@ import { MapService,Feature } from '../../services/map.service';
 import { Router } from '@angular/router';
 import { Plugins, CameraResultType } from '@capacitor/core';
 import { AngularFireStorage,AngularFireUploadTask  } from '@angular/fire/storage';
+import { SCCSkillsService } from '../../services/scc-skills.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import * as  firebase from 'firebase';
 import { finalize } from 'rxjs/operators';
 const { Camera } = Plugins;
+
 
 @Component({
   selector: 'app-sign-up',
@@ -22,7 +24,18 @@ export class SignUpPage implements OnInit {
   urlImage;
   path1;
   urlPath;
-  constructor(private storage: AngularFireStorage,private mapboxService :MapService,private fb: FormBuilder,private route : Router) {
+
+  // role : "", field
+  user = {
+    name : "",
+    surname : "",
+    email : "",
+    address : "",
+    number : "",
+    
+   
+  }
+  constructor(private service : SCCSkillsService,private storage: AngularFireStorage,private mapboxService :MapService,private fb: FormBuilder,private route : Router) {
 
     this.register = fb.group({
       Name: ['', Validators.compose([Validators.pattern('[a-zA-Z ]*'), Validators.minLength(4), Validators.maxLength(30), Validators.required])],
@@ -30,13 +43,19 @@ export class SignUpPage implements OnInit {
       address: ['', Validators.required],
       email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
        password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(12), Validators.required])],
-       cpassword: ['', Validators.required]
-
+       cpassword: ['', Validators.required],
+       number: [0, Validators.compose([Validators.maxLength(10), Validators.required])]
     }, {
       //  validator: MustMatch('password', 'cpassword')
     });
   }
 
+  run(){
+    console.log(this.user)
+    // this.service.addUser(this.user);
+    this.route.navigateByUrl('/index');
+
+  }
   onUpload(event) {
     console.log(event.target.files[0]);
    const id = Math.random().toString(36).substring(2);
@@ -98,7 +117,7 @@ export class SignUpPage implements OnInit {
     }
   }
   back(){
-    this.route.navigateByUrl('/tab/index');
+    this.route.navigateByUrl('/index');
   }
 
 

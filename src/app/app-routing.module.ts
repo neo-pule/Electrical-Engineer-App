@@ -10,6 +10,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
 
+  {
+    path: 'index',
+    loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
+  },
  
   {
     path: 'tab', component : TabPage, children : [
@@ -30,10 +34,6 @@ const routes: Routes = [
         loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
       },
   
-      {
-        path: 'index',
-        loadChildren: () => import('./pages/index/index.module').then( m => m.IndexPageModule)
-      },
     
       {
         path: 'map',

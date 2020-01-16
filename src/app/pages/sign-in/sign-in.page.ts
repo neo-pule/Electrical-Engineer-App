@@ -5,6 +5,8 @@ import { PopoverController } from '@ionic/angular';
 import { MapPage } from '../map/map.page';
 import { Router } from '@angular/router'
 import { MapService } from '../../services/map.service';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthGuardService } from '../../services/auth-guard.service';
 // import { Subject } from 'rxjs';
 
 
@@ -29,11 +31,12 @@ export class SignInPage implements OnInit {
 
   tym;
 
-  constructor(private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
+  constructor(public guards: AuthGuardService,private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
     
   }
   try(){
     console.log(this.tym)
+
   }
 
   async presentModal() {

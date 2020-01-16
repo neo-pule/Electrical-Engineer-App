@@ -118,3 +118,9 @@ h2 {
     background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.712)0%, rgba(29, 1, 1, 0.712) 100%) !important;
     height: 100%;
 }
+form{
+    position: relative;
+      top: 40%;
+transform: translateY(-50%);
+margin: 30px;
+}

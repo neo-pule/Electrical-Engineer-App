@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthGuardService } from '../../services/auth-guard.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-index',
@@ -10,8 +11,10 @@ export class IndexPage implements OnInit {
 
   public loginForm: FormGroup;
 
+  mail : string;
+  pass : string;
 
-  constructor( private route : Router,private fb: FormBuilder) {
+  constructor(public guards: AuthGuardService, private route : Router,private fb: FormBuilder) {
 
     this.loginForm = fb.group({
       email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
@@ -21,7 +24,15 @@ export class IndexPage implements OnInit {
 
    }
 
+   try(){
+    this.guards.signIn(this.mail,this.pass);
+    this.route.navigateByUrl('tab/sign-in');
+   }
+
 signIn(){
+ 
+
+  this.guards.signIn(this.mail,this.pass);
   this.route.navigateByUrl('tab/sign-in');
   console.log("sign In page");
 }

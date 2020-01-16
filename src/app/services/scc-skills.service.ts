@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFirestoreDocument} from '@angular/fire/firestore';
 
+import { AngularFireAuth } from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root'
 })
@@ -33,7 +34,7 @@ private data=[{
 
 ];
 
-  constructor(private dog : AngularFirestore) { 
+  constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore) { 
     // s
   }
 
@@ -60,9 +61,27 @@ private data=[{
 
 
     }
+    addUser(item){
+      this.writePost = this.dog.collection<any>('user');
+      this.writePost.add(item).then(() =>{
+  
+        console.log("user added successful ..");
+        console.log(item.email);
+        console.log(item.pass);
+        this.afAuth.auth.createUserWithEmailAndPassword(item.email, item.pass).then(error => {
+          // Handle Errors here.
+          //var errorCode = error.code;  
+        console.log(error + " added user succesful");
+       
+    
+      }).catch((eee) => {
+        console.log(eee + " Unsuccesful")
+      });
+      });
 
+    }
     getInfo(){
-      return this.dog.collection('course/').valueChanges();
+      return this.dog.collection('services/').valueChanges();
     }
     update(item){
 
