@@ -14,13 +14,13 @@ export class AuthGuardService {
     public afAuth: AngularFireAuth) { 
     
       // var user = firebase.auth().currentUser;
-    afAuth.auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.route.navigateByUrl('home')
-      } else {
-        this.route.navigateByUrl('login')
-      }
-    })
+    // afAuth.auth.onAuthStateChanged((user) => {
+    //   if (user) {
+    //     this.route.navigateByUrl('home')
+    //   } else {
+    //     this.route.navigateByUrl('login')
+    //   }
+    // })
 
     this.afs.collection('services/').snapshotChanges().subscribe((data: any) => {
       this.array = data.map(e => {
