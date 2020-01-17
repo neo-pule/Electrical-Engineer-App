@@ -37,6 +37,7 @@ signIn(){
   console.log("sign In page");
 }
 signUp(){
+  console.log(this.loginForm.value)
   this.route.navigateByUrl('sign-up');
   console.log("sign Up page");
 }

@@ -9,7 +9,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class SCCSkillsService {
 
   
-
+collRef;
   item : any =  {
     khokho : [],
     electrical : "",
@@ -36,6 +36,7 @@ private data=[{
 
   constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore) { 
     // s
+    this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
   }
 
 
@@ -78,6 +79,22 @@ private data=[{
         console.log(eee + " Unsuccesful")
       });
       });
+
+    }
+
+    addRequest(item){
+      this.writePost = this.dog.collection<any>('user').doc('tvQVzZJtGU5H1xeOKDXQ').collection('request');
+      this.writePost.add(item).then(() =>{
+        console.log(item);
+        console.log("request added successful ..");
+        console.log(item.stamp);
+        console.log(item.description);
+       
+      });
+      // this.collRef.add(item).then((err) =>{
+      //   console.log(err);
+      //   console.log("sucessful")
+      // });
 
     }
     getInfo(){

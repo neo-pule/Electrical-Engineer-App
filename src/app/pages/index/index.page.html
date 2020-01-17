@@ -1,55 +1,53 @@
 <ion-content>
-    <div class="main">
-        <div class="top">
-            <h2>Sign-In</h2>
-        </div>
-        <div class="middle">
-            <form [formGroup]="loginForm">
-                <div class="forms">
-                    <!-- <ion-thumbnail style="text-align: center;">
-                        <img src="../../../assets/logo1.png" width="50%">
-                    </ion-thumbnail> -->
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <ion-item color="transparent" class="group">
-                        <ion-label position="floating">Email</ion-label>
-                        <ion-input type="email" formControlName="email" [(ngModel)]="mail"></ion-input>
-                    </ion-item>
-                    <div class="error" *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched">
-                        Please input your email
-                    </div>
-                    <div class="error" *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').touched">
-                        Email address invalid
-                    </div>
-                    <ion-item color="transparent" class="group">
-                        <ion-label position="floating">Password</ion-label>
-                        <ion-input type="password" formControlName="password" [(ngModel)]="pass"></ion-input>
-                    </ion-item>
-                    <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
-                        Please input your password
-                    </div>
-                    <div class="error" *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
-                        Minimum 6 characters
-                    </div>
-                    <div class="error" *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
-                        Maximum 12 characters
-                    </div>
-                    <br>
-                    <p style="text-align: center;">Forgot password ? <a [routerLink]="['/index']">here</a></p>
-                    <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
+    <div style="display: none;">
 
-                    <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="signUp()">Sign Up</ion-button>
-                    <!-- <p (click)="forgotpassword()">Forgot Password</p>
-                        <p (click)="registerPage()"> Dont have account? Sign Up</p> -->
-                </div>
-
-            </form>
-        </div>
+        <ion-card class="header">
+           
+            <!-- <img src="assets\logo.PNG" /> -->
+            <h2>index</h2>
+            <ion-buttons slot="start">
+                <ion-back-button defaultHref="tab/info"></ion-back-button>
+            </ion-buttons>
+        </ion-card>
     </div>
 
+    <form [formGroup]="loginForm">
+        <div class="forms">
+            <ion-thumbnail >
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              </ion-thumbnail>
+            <br>
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="email" formControlName="email" [(ngModel)]="mail"></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched">
+                Please input your email
+            </div>
+            <div class="error" *ngIf="loginForm.get('email').hasError('pattern') && loginForm.get('email').touched">
+                Email address invalid
+            </div>
+            <ion-item color="transparent" class="group">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" formControlName="password" [(ngModel)]="pass"></ion-input>
+            </ion-item>
+            <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
+                Please input your password
+            </div>
+            <div class="error" *ngIf="loginForm.get('password').hasError('minlength') && loginForm.get('password').touched">
+                Minimum 6 characters
+            </div>
+            <div class="error" *ngIf="loginForm.get('password').hasError('maxlength') && loginForm.get('password').touched">
+                Maximum 12 characters
+            </div>
+            <br>
+            <p style="text-align: right;">Forgot password ? <a [routerLink]="['/index']">here</a></p>
+            <ion-button expand="block" color="primary" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
+      
+            <ion-button expand="block" fill="outline" (click)="signUp()">Sign Up</ion-button>
+            <!-- <p (click)="forgotpassword()">Forgot Password</p>
+                <p (click)="registerPage()"> Dont have account? Sign Up</p> -->
+        </div>
+
+    </form>
 </ion-content>
