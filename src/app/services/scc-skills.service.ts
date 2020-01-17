@@ -3,6 +3,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFirestoreDocument} from '@angular/fire/firestore';
 
 import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -98,7 +99,13 @@ private data=[{
 
     }
     getInfo(){
-      return this.dog.collection('services/').valueChanges();
+      return this.dog.collection('services/').snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as any;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
     }
     update(item){
 
@@ -107,9 +114,16 @@ private data=[{
     console.log("updated");
   }
 
+  getDoc(key: string){
+    return this.dog.doc("services/"+key).valueChanges()
+  }
+
+  getDocComments(docId:string){
+    return this.dog.doc("services/"+docId).collection("comments").valueChanges()
+  }
   delete(key){
 
-//   return this.dog.doc<Item>('services/' + key).delete();
+  // return this.dog.doc<Item>('services/' + key).delete();
 
   }
 }
