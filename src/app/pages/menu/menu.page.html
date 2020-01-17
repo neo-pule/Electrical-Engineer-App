@@ -5,109 +5,112 @@
 </ion-header> -->
 
 <ion-content>
+    <div class="main">
+        <div class="top">
+            <!-- <ion-buttons slot="start">
+                <ion-back-button defaultHref="home"></ion-back-button>
+            </ion-buttons> -->
+            <h2>Services</h2>
+        </div>
+        <div class="middle">
+            <br>
+            <br>
+            <br>
 
-    <div>
-       
-        <ion-card class="header">
-            <ion-buttons slot="start">
-                <ion-back-button defaultHref="home" color="secondary"></ion-back-button>
-            </ion-buttons>
-            <!-- <img src="assets\logo.PNG" /> -->
-            <h2>Service List</h2>
+            <ion-list>
+                <ion-item *ngFor="let cat of arr">
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/22.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>cat.cost</h4>
+                        <p>cat.name</p>
+                    </ion-label>
+                </ion-item>
 
-        </ion-card>
+                <ion-item (click)="next()">
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/4988604621_008a9079ca_o-1.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/bmw-e12-sahara-beige-bbs.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/22.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/4988604621_008a9079ca_o-1.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/bmw-e12-sahara-beige-bbs.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/22.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/bmw-e12-sahara-beige-bbs.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <img src="../assets/22.jpg">
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h4>Thumbnail chaos</h4>
+                        <p>success ..</p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+
+        </div>
     </div>
 
-    <ion-list>
-        <ion-item *ngFor="let cat of arr">
-            <ion-thumbnail slot="start">
-                <img src="../assets/22.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>cat.cost</h4>
-                <p>cat.name</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item (click)="next()" >
-            <ion-thumbnail slot="start">
-                <img src="../assets/4988604621_008a9079ca_o-1.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-thumbnail slot="start">
-                <img src="../assets/bmw-e12-sahara-beige-bbs.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-thumbnail slot="start">
-                <img src="../assets/22.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-thumbnail slot="start">
-                <img src="../assets/4988604621_008a9079ca_o-1.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-thumbnail slot="start">
-                <img src="../assets/bmw-e12-sahara-beige-bbs.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-thumbnail slot="start">
-                <img src="../assets/22.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-thumbnail slot="start">
-                <img src="../assets/bmw-e12-sahara-beige-bbs.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-
-        <ion-item>
-            <ion-thumbnail slot="start">
-                <img src="../assets/22.jpg">
-            </ion-thumbnail>
-            <ion-label>
-                <h4>Thumbnail chaos</h4>
-                <p>success ..</p>
-            </ion-label>
-        </ion-item>
-    </ion-list>
 
 </ion-content>
