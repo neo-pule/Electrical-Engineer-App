@@ -1,11 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>forgotPass</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="danger">
+        <ion-title>Forgot Password</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-input [(ngModel)]="mail"></ion-input>
-  <ion-button (click)="resetPass(mail)">Reset Password</ion-button>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ion-item color="transparent" class="group">
+        <ion-label position="floating">Enter Email</ion-label>
+        <ion-input [(ngModel)]="mail"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="resetPass(mail)">Reset Password</ion-button>
 </ion-content>
