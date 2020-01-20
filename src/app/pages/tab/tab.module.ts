@@ -6,7 +6,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TabPageRoutingModule } from './tab-routing.module';
 
-import { TabPage } from './tab.page';
+// import { TabPage } from './tab.page';
 
 @NgModule({
   imports: [
@@ -15,6 +15,6 @@ import { TabPage } from './tab.page';
     IonicModule,
     TabPageRoutingModule
   ],
-  declarations: [TabPage]
+  declarations: []
 })
 export class TabPageModule {}
