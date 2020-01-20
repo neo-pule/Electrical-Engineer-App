@@ -22,7 +22,10 @@
                     <!-- <ion-label position="floating" >Date</ion-label>   [(ngModel)]="user.address -->
 					<ion-input type="Date" [(ngModel)]="request.day"></ion-input>
 				</ion-item>
-
+				<ion-item >
+                    <ion-label position="floating" >Time :</ion-label>
+					<ion-input type="time" [(ngModel)]="request.time" ></ion-input>
+				</ion-item>
 				<ion-item >
                     <ion-label position="floating" (click)="presentModal()">Location : </ion-label>
 					<ion-input [(ngModel)]="request.location" ></ion-input>
