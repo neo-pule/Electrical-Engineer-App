@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { SCCSkillsService } from '../../services/scc-skills.service';
 import { ModalController } from '@ionic/angular';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.page.html',
@@ -19,12 +20,14 @@ export class MenuPage implements OnInit {
     this.obj = this.list.getInfo();
     this.obj.subscribe(data => {
       console.log(data);
+      console.log(data[0].key);
       this.arr = data;
       console.log(this.arr);
     })
   }
-  next(){
-    this.route.navigateByUrl('/tab/info');
+  next(docId: string){
+    // console.log(docId)
+    this.route.navigate(['/tab/info'],{queryParams : {key: docId}} );
     // this.route.navigate(['info'], {queryParams : {subject : this.subject,service : this.service, message : this.message}});
   }
   back(){

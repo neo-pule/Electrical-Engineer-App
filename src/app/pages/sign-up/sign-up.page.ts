@@ -53,8 +53,8 @@ export class SignUpPage implements OnInit {
 
   run(){
     console.log(this.user)
-    // this.service.addUser(this.user);
-    this.route.navigateByUrl('/index');
+    this.service.addUser(this.user);
+    
 
   }
   onUpload(event) {

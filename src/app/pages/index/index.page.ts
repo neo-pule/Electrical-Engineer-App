@@ -24,22 +24,19 @@ export class IndexPage implements OnInit {
 
    }
 
-   try(){
-    this.guards.signIn(this.mail,this.pass);
-    this.route.navigateByUrl('tab/sign-in');
-   }
-
 signIn(){
- 
 
   this.guards.signIn(this.mail,this.pass);
-  this.route.navigateByUrl('tab/sign-in');
+ 
+  // this.route.navigateByUrl('tab/sign-in');
   console.log("sign In page");
 }
 signUp(){
+  console.log(this.loginForm.value)
   this.route.navigateByUrl('sign-up');
   console.log("sign Up page");
 }
+
 back(){
   this.route.navigateByUrl('/info');
 }
