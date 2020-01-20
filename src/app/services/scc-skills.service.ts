@@ -4,6 +4,7 @@ import {AngularFirestoreDocument} from '@angular/fire/firestore';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +36,7 @@ private data=[{
 
 ];
 
-  constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore) { 
+  constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore,private route : Router) { 
     // s
     this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
   }
@@ -74,10 +75,13 @@ private data=[{
           // Handle Errors here.
           //var errorCode = error.code;  
         console.log(error + " added user succesful");
-       
+        
+          this.route.navigateByUrl('/index');
+        
     
       }).catch((eee) => {
         console.log(eee + " Unsuccesful")
+        alert(eee);
       });
       });
 

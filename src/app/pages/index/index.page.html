@@ -29,7 +29,7 @@
             </div>
             <ion-item color="transparent" class="group">
                 <ion-label position="floating">Password</ion-label>
-                <ion-input type="password" formControlName="password" [(ngModel)]="pass"></ion-input>
+                <ion-input type="password" formControlName="password" maxlength="10" [(ngModel)]="pass"></ion-input>
             </ion-item>
             <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
                 Please input your password
@@ -41,7 +41,7 @@
                 Maximum 12 characters
             </div>
             <br>
-            <p style="text-align: right;">Forgot password ? <a [routerLink]="['/index']">here</a></p>
+            <p style="text-align: right;">Forgot password ? <a [routerLink]="['/forgot-pass']">here</a></p>
             <ion-button expand="block" color="primary" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
       
             <ion-button expand="block" fill="outline" (click)="signUp()">Sign Up</ion-button>
