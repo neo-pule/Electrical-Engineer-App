@@ -75,7 +75,7 @@ private data=[{
           // Handle Errors here.
           //var errorCode = error.code;  
         console.log(error + " added user succesful");
-        
+        alert(item.email + " succesful registered" )
           this.route.navigateByUrl('/index');
         
     
@@ -122,6 +122,9 @@ private data=[{
     return this.dog.doc("services/"+key).valueChanges()
   }
 
+  getUserDoc(uid:string){
+    return this.dog.doc("user/"+uid).valueChanges()
+  }
   getDocComments(docId:string){
     return this.dog.doc("services/"+docId).collection("comments").valueChanges()
   }

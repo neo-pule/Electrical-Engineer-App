@@ -27,9 +27,11 @@ export class IndexPage implements OnInit {
 signIn(){
 
   this.guards.signIn(this.mail,this.pass);
- 
-   this.route.navigateByUrl('tab/sign-in');
   console.log("sign In page");
+}
+
+resetPass(){
+  this.route.navigateByUrl('forgot-pass');
 }
 signUp(){
   console.log(this.loginForm.value)
