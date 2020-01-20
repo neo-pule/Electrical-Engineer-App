@@ -39,7 +39,7 @@ private data=[{
 
   constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore,private route : Router) { 
     // s
-    this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
+    // this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
   }
 
 
