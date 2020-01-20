@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SCCSkillsService } from 'src/app/services/scc-skills.service';
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -9,12 +10,12 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 })
 export class ProfilePage implements OnInit {
   UserInfo = [];
-  constructor(public profileService: SCCSkillsService, public auth: AuthGuardService) {
-    this.profileService.getUser().then((data) => {
-      this.UserInfo = data;
-    })
+  constructor(public profileService: SCCSkillsService, public auth: AuthGuardService,private route : Router) {
   }
 
+  run() {
+    this.route.navigateByUrl('update-profile');
+  }
   signOut(){
     this.auth.signOut();
   }

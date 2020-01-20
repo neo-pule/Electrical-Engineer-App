@@ -13,7 +13,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  ServiceType = ["New Installation","Repaire","Inspection"];
+  ServiceType = ["New Installation","Repair","Inspection"];
 
   booking=[];
   items=[];
