@@ -1,13 +1,13 @@
 <ion-content>
     <div class="main">
         <div class="top">
-            <ion-buttons slot="start">
-                <ion-back-button defaultHref="index"></ion-back-button>
-            </ion-buttons>
-            <!-- <img src="assets\logo.PNG" /> -->
+            <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back" defaultHref="index"></ion-icon>
+            <!-- <ion-icon name="arrow-round-back" defaultHref="index"></ion-icon> -->
             <h2>Sign-up</h2>
         </div>
         <div class="middle">
+            <br>
+            <br>
             <form [formGroup]="register" class="my-form" (submit)="run()()">
                 <div class="forms">
                     <ion-item color="transparent" class="group">
@@ -102,7 +102,7 @@
                     <br>
                     <!-- <ion-item lines="none" color="transparent">
                         <ion-label class="group">Location</ion-label>
-                        <ion-select class="group" value="brown" okText="Okay" cancelText="Dismiss">
+                        <ion-select color="danger" class="group" value="brown" okText="Okay" cancelText="Dismiss" color="transparent">
                             <ion-select-option value="brown">Gauteng</ion-select-option>
                             <ion-select-option value="blonde">Mpumalanga</ion-select-option>
                             <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
