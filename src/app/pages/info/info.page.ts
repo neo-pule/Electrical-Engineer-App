@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { PopoverController } from '@ionic/angular';
 import { IndexPage } from '../../pages/index/index.page';
+import { SCCSkillsService } from 'src/app/services/scc-skills.service';
 @Component({
   selector: 'app-info',
   templateUrl: './info.page.html',
@@ -13,11 +14,21 @@ export class InfoPage implements OnInit {
 @Input() subject :string
 @Input() message :string
 @Input() service :string
+@Input() key :string
 
 temp;
 temp1;
 temp2;
-  constructor(public popoverController: PopoverController,private addr : ActivatedRoute, private route : Router,private modalCtrl:ModalController) { }
+private docKey: string = null;
+private serviceName: string = null;
+private cost: string = null;
+private description: string = null;
+private coome: string = null;
+
+private obj: any;
+
+  constructor(public popoverController: PopoverController,private addr : ActivatedRoute, 
+    private route : Router,private modalCtrl:ModalController, private apiSerice: SCCSkillsService) { }
 
 next1(){
   this.route.navigateByUrl('/index');
@@ -43,16 +54,32 @@ async presentPopover(ev: any) {
   ngOnInit() {
 
     this.addr.queryParams.subscribe(data => {
-      console.log(data);
+      // console.log(data);
 
-      this.temp = data.subject;
-      console.log(this.temp);
+      // this.temp = data.subject;
+      // console.log(this.temp);
 
-      this.temp1 = data.message;
-      console.log(this.temp1);
+      
 
-      this.temp2 = data.service;
-      console.log(this.temp2);
+      this.docKey = data.key;
+
+
+      this.apiSerice.getDoc(this.docKey).subscribe(data=>{
+        console.log(data)
+        this.obj = data;
+      });
+
+
+      this.apiSerice.getDocComments(this.docKey).subscribe(data=>{
+        console.log(data)
+      });
+
+
+      // this.temp1 = data.message;
+      // console.log(this.temp1);
+
+      // this.temp2 = data.service;
+      // console.log(this.temp2);
     })
   }
 

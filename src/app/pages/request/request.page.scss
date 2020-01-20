@@ -1,25 +1,64 @@
-ion-content{
-    --ion-background-color: lightgrey;
+// ion-content{
+//     --ion-background-color: lightgrey;
+// }
+// #indicator {
+//     width: 100%;
+//     height: 20px;
+//     background-color: green;
+// }
+// .card {
+//     margin-top: 20px;
+//     width: 100%;
+//     height: 200px;
+//     border-radius: 10px;
+//     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+//     transition: 0.3s;
+//     background-color: #FFFF;
+//     h2 {
+// margin-left: 10px;
+// margin-top: 10px;
+// }
+// p {
+//     margin-left: 10px;
+//     margin-top: 3px;
+// }
+// }
+.main {
+    display: grid;
+    grid-template-rows: 10% 85%;
+    height: 100%;
+    // background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
+    .top {
+        width: 100%;
+        box-shadow: 1px;
+        background-color: #940a0a;
+        h2 {
+            text-align: center;
+            color: white;
+        }
+    }
+    .middle {
+        padding-left: 10px;
+        padding-right: 15px;
+        color: black;
+        #btn {
+            background-color: #382323;
+            color: black;
+        }
+        .error {
+            color: #940a0a;
+        }
+        .group {
+            color: white;
+        }
+        .card {
+            background-color: rgba(80, 5, 5, 0.562);
+        }
+        .card1 {
+            background-color: rgba(10, 4, 4, 0.774);
+        }
+        .card2 {
+            background-color: rgba(224, 215, 215, 0.562);
+        }
+    }
 }
-    #indicator{
-        width: 100%;
-        height: 20px;
-        background-color: green;
-    }
-    .card{
-        margin-top: 20px;
-        width: 100%;
-        height: 200px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        transition: 0.3s;
-        background-color: #FFFF;
-        h2{
-            margin-left: 10px;
-            margin-top: 10px;
-        }
-        p{
-            margin-left: 10px;
-            margin-top: 3px;
-        }
-    }

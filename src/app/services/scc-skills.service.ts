@@ -3,6 +3,8 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFirestoreDocument} from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,8 +37,9 @@ private data=[{
 
 ];
 
-  constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore) { 
+  constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore,private route : Router) { 
     // s
+    this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
   }
 
 
@@ -73,16 +76,41 @@ private data=[{
           // Handle Errors here.
           //var errorCode = error.code;  
         console.log(error + " added user succesful");
-       
+        
+          this.route.navigateByUrl('/index');
+        
     
       }).catch((eee) => {
         console.log(eee + " Unsuccesful")
+        alert(eee);
       });
       });
 
     }
+
+    addRequest(item){
+      this.writePost = this.dog.collection<any>('user').doc('tvQVzZJtGU5H1xeOKDXQ').collection('request');
+      this.writePost.add(item).then(() =>{
+        console.log(item);
+        console.log("request added successful ..");
+        console.log(item.stamp);
+        console.log(item.description);
+       
+      });
+      // this.collRef.add(item).then((err) =>{
+      //   console.log(err);
+      //   console.log("sucessful")
+      // });
+
+    }
     getInfo(){
-      return this.dog.collection('services/').valueChanges();
+      return this.dog.collection('services/').snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as any;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
     }
     update(item){
 
@@ -91,9 +119,16 @@ private data=[{
     console.log("updated");
   }
 
+  getDoc(key: string){
+    return this.dog.doc("services/"+key).valueChanges()
+  }
+
+  getDocComments(docId:string){
+    return this.dog.doc("services/"+docId).collection("comments").valueChanges()
+  }
   delete(key){
 
-//   return this.dog.doc<Item>('services/' + key).delete();
+  // return this.dog.doc<Item>('services/' + key).delete();
 
   }
 

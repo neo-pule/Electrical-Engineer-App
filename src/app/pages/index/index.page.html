@@ -1,18 +1,31 @@
 <ion-content>
     <div class="main">
-        <div class="top">
+        <!-- <div class="top">
             <h2>Sign-In</h2>
-        </div>
+        </div> -->
         <div class="middle">
+            <br>
+            <br>
+
+            <div class="image">
+                <img src="/assets/logo.PNG">
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+
             <form [formGroup]="loginForm">
                 <div class="forms">
-                    <!-- <ion-thumbnail style="text-align: center;">
-                        <img src="../../../assets/logo1.png" width="50%">
-                    </ion-thumbnail> -->
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+
+
+
                     <br>
                     <br>
                     <br>
@@ -40,12 +53,18 @@
                         Maximum 12 characters
                     </div>
                     <br>
+<<<<<<< HEAD
                     <p style="text-align: center;">Forgot password ? <a [routerLink]="['/index']">here</a></p>
                     <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn();getEmail(mail)">Sign In</ion-button>
 
                     <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="signUp()">Sign Up</ion-button>
                     <!-- <p (click)="forgotpassword()">Forgot Password</p>
                         <p (click)="registerPage()"> Dont have account? Sign Up</p> -->
+=======
+                    <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
+                    <p style="text-align: center;">Don't have an accaunt sign up <a [routerLink]="['/sign-up']">here</a></p>
+                    <p (click)="forgotpassword()">Forgot Password ? <a [routerLink]="['']">here</a></p>
+>>>>>>> 36edad5b50519ce8d286ec282a91601c3921df26
                 </div>
 
             </form>

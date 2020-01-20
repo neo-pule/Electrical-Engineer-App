@@ -1,0 +1,78 @@
+.main {
+    display: grid;
+    grid-template-rows: 10%;
+    height: 100%;
+    .top {
+        width: 100%;
+        box-shadow: 1px;
+        background-color: #940a0a;
+        h2 {
+            text-align: center;
+            color: white;
+        }
+    }
+}
+
+:root {
+    .profile {
+        height: 100%;
+        width: 100%;
+        -webkit-box-shadow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);
+    }
+}
+
+ion-toolbar {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+}
+
+.profile-image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-image {
+    img {
+        height: 160px;
+        width: 160px;
+        border-radius: 50%;
+        border: 4px solid rgba(255, 255, 255, 0.4);
+        -webkit-box-shadow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 142px -37px rgba(0, 0, 0, 0.75);
+    }
+}
+
+// .image-upload {
+//     margin-top: 70px;
+//     top: 180px;
+// }
+.image-upload>input {
+    display: none;
+}
+
+.input {
+    font-size: 50px;
+}
+
+ion-spinner {
+    display: block;
+    margin: auto;
+    top: -107px;
+    width: 50px;
+    height: 50px;
+}
+
+#btn {
+    background-color: #940a0a;
+    color: white;
+}

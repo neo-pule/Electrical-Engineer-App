@@ -1,18 +1,29 @@
 <ion-content>
     <div class="main">
-        <div class="top">
-            <ion-buttons slot="start">
-                <ion-back-button defaultHref="index"></ion-back-button>
-            </ion-buttons>
-            <!-- <img src="assets\logo.PNG" /> -->
-            <h2>Sign-up</h2>
-        </div>
+
         <div class="middle">
-            <form [formGroup]="register" class="my-form" (submit)="run()()">
+            <br>
+            <br>
+
+            <div class="image">
+                <img src="/assets/logo.PNG">
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <form [formGroup]="register" class="my-form" (submit)="run()">
                 <div class="forms">
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Name</ion-label>
-                        <ion-input type="text" formControlName="Name" required [(ngModel)]="user.name"></ion-input>
+                        <ion-input type="text" formControlName="Name" type="text" required [(ngModel)]="user.name"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="register.get('Name').hasError('required') && register.get('Name').touched">
                         Please input your Name
@@ -27,7 +38,7 @@
 
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Surname</ion-label>
-                        <ion-input type="text" formControlName="Surname" required [(ngModel)]="user.surname"></ion-input>
+                        <ion-input type="text" formControlName="Surname" type="text" required [(ngModel)]="user.surname"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="register.get('Surname').hasError('required') && register.get('Surname').touched">
                         Please input your Surname
@@ -41,7 +52,7 @@
 
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Email</ion-label>
-                        <ion-input type="email" formControlName="email" [(ngModel)]="user.email"></ion-input>
+                        <ion-input type="email" formControlName="email" type="text" [(ngModel)]="user.email"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="register.get('email').hasError('required') && register.get('email').touched">
                         Please input your email
@@ -53,7 +64,7 @@
 
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Address</ion-label>
-                        <ion-input type="text" formControlName="address" [(ngModel)]="user.address"></ion-input>
+                        <ion-input type="text" formControlName="address" type="text" [(ngModel)]="user.address"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="register.get('address').hasError('required') && register.get('address').touched">
                         Please input your address
@@ -63,7 +74,7 @@
 
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Password</ion-label>
-                        <ion-input type="password" formControlName="password" [(ngModel)]="user.pass"></ion-input>
+                        <ion-input type="password" formControlName="password" type="text" [(ngModel)]="user.pass"></ion-input>
                     </ion-item>
                     <div class="error" *ngIf="register.get('password').hasError('required') && register.get('password').touched">
                         Please input your password
@@ -76,7 +87,6 @@
                     <div class="error" *ngIf="register.get('password').hasError('maxlength') && register.get('password').touched">
                         Maximum 12 characters
                     </div>
-
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Confirm Password</ion-label>
                         <ion-input type="password" formControlName="cpassword"></ion-input>
@@ -97,12 +107,15 @@
                     <div class="error" *ngIf="register.get('cpassword').hasError('mustMatch') ">Passwords must match</div>
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Number</ion-label>
-                        <ion-input type="text" formControlName="number" [(ngModel)]="user.number"></ion-input>
+                        <ion-input type="text" formControlName="number" type="number" [(ngModel)]="user.number"></ion-input>
                     </ion-item>
+                    <div class="error" *ngIf="register.get('number').hasError('number') && register.get('number').touched">
+                        Please enter your phone number
+                    </div>
                     <br>
-                    <ion-item lines="none" color="transparent">
+                    <!-- <ion-item lines="none" color="transparent">
                         <ion-label class="group">Location</ion-label>
-                        <ion-select class="group" value="brown" okText="Okay" cancelText="Dismiss">
+                        <ion-select color="danger" class="group" value="brown" okText="Okay" cancelText="Dismiss" color="transparent">
                             <ion-select-option value="brown">Gauteng</ion-select-option>
                             <ion-select-option value="blonde">Mpumalanga</ion-select-option>
                             <ion-select-option value="black">Kwa-Zulu Natal</ion-select-option>
@@ -113,12 +126,12 @@
                             <ion-select-option value="red">Eastern Cape</ion-select-option>
 
                         </ion-select>
-                    </ion-item>
+                    </ion-item> -->
                 </div>
                 <!-- <ion-button color="transparent"expand="full" fill="outline" (click)="back()" color="light">Submit</ion-button> -->
                 <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="run();getEmail(user.email)">Submit</ion-button>
 
-                <p style="text-align: center; color: white;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p>
+                <p style="text-align: center; color: black;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p>
 
             </form>
         </div>

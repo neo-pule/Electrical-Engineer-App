@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TabPageRoutingModule } from './tab-routing.module';
+import { ForgotPassPageRoutingModule } from './forgot-pass-routing.module';
 
-// import { TabPage } from './tab.page';
+import { ForgotPassPage } from './forgot-pass.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabPageRoutingModule
+    ForgotPassPageRoutingModule
   ],
-  declarations: []
+  declarations: [ForgotPassPage]
 })
-export class TabPageModule {}
+export class ForgotPassPageModule {}

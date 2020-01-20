@@ -7,8 +7,8 @@ import { Router } from '@angular/router'
 import { MapService } from '../../services/map.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from '../../services/auth-guard.service';
-import { SCCSkillsService } from 'src/app/services/scc-skills.service';
-
+import { SCCSkillsService } from '../../services/scc-skills.service'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 // import { Subject } from 'rxjs';
 
 
@@ -26,18 +26,34 @@ export class SignInPage implements OnInit {
   @Input() subject : string
   @Input() service : string
 
+  public loginForm: FormGroup;
 
   temp : any;
   temp1 : any;
   temp2 : any;
+  location ;
+  day;
+request = {
+  day : "",
+  stamp : Date.now(),
+  location: ""
+
+}
+stamp = Date();
 
   tym;
 
-  constructor(public guards: AuthGuardService,private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
-    
+  constructor(private skill :SCCSkillsService,private fb: FormBuilder,public guards: AuthGuardService,private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
+   
+    this.loginForm = fb.group({
+      day: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
+      location: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(12), Validators.required])],
+    });
+
   }
   try(){
     console.log(this.tym)
+    console.log(this.request)
 
   }
 
@@ -57,7 +73,11 @@ export class SignInPage implements OnInit {
   }
   
   take(){
-    this.route.navigateByUrl('tab/request');
+    // this.route.navigateByUrl('tab/request');
+    console.log(this.request.stamp  )
+    this.skill.addRequest(this.request);
+
+
   }
 
   ngOnInit() {

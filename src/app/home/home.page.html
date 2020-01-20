@@ -24,15 +24,11 @@
     <div class="cat">
         <h4>Categories</h4>
     </div>
-
     <div *ngFor="let cat of items" class="category-block">
-
         <ion-row no-padding class="category-banner">
             <ion-col no-padding button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
-
             </ion-col>
         </ion-row>
-
         <ion-slides [options]="sliderConfig">
 
             <ion-slide *ngFor = "let service_type of ServiceType" (click)="nextPage()">
@@ -43,24 +39,23 @@
                     <h3>{{service_type}}</h3>
                 </ion-card>
             </ion-slide>
-
         </ion-slides>
     </div>
 
 
-    <div class="ion-padding">
+    <!-- <div class="ion-padding">
 
         <ion-item *ngFor="let x of array" (click)="clicked(x)">
 
-            <!-- {{x.name}} {{x.price}} {{x.type}} -->
+            {{x.name}} {{x.price}} {{x.type}}
             {{x.electrical}} {{x.engineering}} -- {{x.key}}
             <br> {{x.khokho}}
         </ion-item>
     </div>
-
+ -->
 
     <!-- <div class="feedback"> -->
-        
+
     <!-- </div> -->
 
     <br>

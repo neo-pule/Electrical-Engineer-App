@@ -1,8 +1,8 @@
     .main {
         display: grid;
-        grid-template-rows: 15% 85%;
+        grid-template-rows: 10% 90%;
         height: 100%;
-        background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
+        // background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
         .top {
             overflow: hidden;
             width: 100%;
@@ -10,21 +10,28 @@
             background-color: #940a0a;
             h2 {
                 text-align: center;
-                color: white;
+                color: black;
             }
         }
         .middle {
             padding-left: 10px;
             padding-right: 15px;
+            .image {
+                // align-items: center;
+                left: 15%;
+                position: absolute;
+                // margin-left: auto;
+                // margin-right: auto;
+            }
             #btn {
-                background: #382323;
+                background: #940a0a;
                 color: white;
             }
             .error {
                 color: #940a0a;
             }
             .group {
-                color: white;
+                color: black;
             }
         }
     }
