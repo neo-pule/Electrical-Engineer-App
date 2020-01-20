@@ -25,6 +25,7 @@ private serviceName: string = null;
 private cost: string = null;
 private description: string = null;
 private coome: string = null;
+value: any;
 
 private usersAndComments = [];
 private obj: any;
@@ -86,9 +87,15 @@ async presentPopover(ev: any) {
           this.apiSerice.getUserDoc(user.getId()).subscribe(userData=>{
             console.log(userData);
 
-            user.setName(userData.name);
+            this.value = userData;
 
-            this.usersAndComments.push(user);
+            user.setName(this.value.name);
+
+            console.log( this.value.name);
+
+          //  user.setName(userData.data().name);
+
+           // this.usersAndComments.push(user);
           });
         }
       });
