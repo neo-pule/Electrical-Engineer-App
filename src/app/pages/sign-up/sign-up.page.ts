@@ -56,6 +56,11 @@ export class SignUpPage implements OnInit {
     this.route.navigateByUrl('/index');
 
   }
+
+  getEmail(email) {
+    this.service.setEmail(email);
+  }
+
   onUpload(event) {
     console.log(event.target.files[0]);
    const id = Math.random().toString(36).substring(2);

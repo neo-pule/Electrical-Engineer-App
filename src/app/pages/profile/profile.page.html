@@ -67,4 +67,10 @@
     </ion-item-sliding>
 
     </ion-list>
+    
+    <div *ngFor = "let users of UserInfo">
+      <h3>
+        {{users.address}}
+      </h3>
+    </div>
 </ion-content>

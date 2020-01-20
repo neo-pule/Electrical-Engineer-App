@@ -7,6 +7,7 @@ import { Router } from '@angular/router'
 import { MapService } from '../../services/map.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from '../../services/auth-guard.service';
+import { SCCSkillsService } from 'src/app/services/scc-skills.service';
 
 // import { Subject } from 'rxjs';
 

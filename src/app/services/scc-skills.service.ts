@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFirestoreDocument} from '@angular/fire/firestore';
-
+import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root'
 })
 export class SCCSkillsService {
 
-  
+  UserArray = [];
+  Email;
 
   item : any =  {
     khokho : [],
@@ -94,5 +95,24 @@ private data=[{
 
 //   return this.dog.doc<Item>('services/' + key).delete();
 
+  }
+
+  setEmail(email) {
+    this.Email = email;
+  }
+
+  getUser() {
+    return firebase.firestore().collection("user/").get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        console.log(doc.id);
+
+        if(this.Email == doc.data().email){
+          this.UserArray.push(doc.data())
+        }else{
+        }
+      })
+
+      return this.UserArray;
+    })
   }
 }

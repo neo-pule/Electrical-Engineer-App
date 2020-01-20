@@ -116,7 +116,7 @@
                     </ion-item>
                 </div>
                 <!-- <ion-button color="transparent"expand="full" fill="outline" (click)="back()" color="light">Submit</ion-button> -->
-                <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="run()">Submit</ion-button>
+                <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="run();getEmail(user.email)">Submit</ion-button>
 
                 <p style="text-align: center; color: white;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p>
 

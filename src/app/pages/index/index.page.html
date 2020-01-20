@@ -41,7 +41,7 @@
                     </div>
                     <br>
                     <p style="text-align: center;">Forgot password ? <a [routerLink]="['/index']">here</a></p>
-                    <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
+                    <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn();getEmail(mail)">Sign In</ion-button>
 
                     <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="signUp()">Sign Up</ion-button>
                     <!-- <p (click)="forgotpassword()">Forgot Password</p>

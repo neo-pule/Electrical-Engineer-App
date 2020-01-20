@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthGuardService } from '../../services/auth-guard.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SCCSkillsService } from 'src/app/services/scc-skills.service';
 @Component({
   selector: 'app-index',
   templateUrl: './index.page.html',
@@ -14,7 +15,7 @@ export class IndexPage implements OnInit {
   mail : string;
   pass : string;
 
-  constructor(public guards: AuthGuardService, private route : Router,private fb: FormBuilder) {
+  constructor(public guards: AuthGuardService, private route : Router,private fb: FormBuilder,private index:SCCSkillsService) {
 
     this.loginForm = fb.group({
       email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
@@ -23,6 +24,10 @@ export class IndexPage implements OnInit {
 
 
    }
+
+   getEmail(email) {
+    this.index.setEmail(email);
+  }
 
    try(){
     this.guards.signIn(this.mail,this.pass);
