@@ -36,7 +36,8 @@ export class SignInPage implements OnInit {
 request = {
   day : "",
   stamp : Date.now(),
-  location: ""
+  location: "",
+  time : 0
 
 }
 stamp = Date();
@@ -74,7 +75,7 @@ stamp = Date();
   
   take(){
     // this.route.navigateByUrl('tab/request');
-    console.log(this.request.stamp  )
+    console.log(this.request.time  )
     this.skill.addRequest(this.request);
 
 
