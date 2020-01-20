@@ -47,7 +47,7 @@ export class SignUpPage implements OnInit {
       email: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
        password: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(12), Validators.required])],
        cpassword: ['', Validators.required],
-       number: [0, Validators.compose([Validators.maxLength(10), Validators.required])]
+       number: ['', Validators.compose([Validators.maxLength(10), Validators.required])]
     }, {
       //  validator: MustMatch('password', 'cpassword')
     });

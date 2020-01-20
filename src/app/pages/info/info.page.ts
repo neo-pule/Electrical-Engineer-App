@@ -33,7 +33,9 @@ private obj: any;
     private route : Router,private modalCtrl:ModalController, private apiSerice: SCCSkillsService) { }
 
 next1(){
-  this.route.navigateByUrl('/index');
+  // this.route.navigateByUrl('/index');
+  
+  this.route.navigate(['index'],{queryParams : {obj: this.obj}} );
 }
 back(){
   this.route.navigateByUrl('/menu');
@@ -61,7 +63,7 @@ async presentPopover(ev: any) {
       // this.temp = data.subject;
       // console.log(this.temp);
 
-      
+      this.obj = data;
 
       this.docKey = data.key;
 

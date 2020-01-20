@@ -1,14 +1,25 @@
 <ion-content>
     <div class="main">
-        <div class="top">
-            <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back" defaultHref="index"></ion-icon>
-            <!-- <ion-icon name="arrow-round-back" defaultHref="index"></ion-icon> -->
-            <h2>Sign-up</h2>
-        </div>
+
         <div class="middle">
             <br>
             <br>
-            <form [formGroup]="register" class="my-form" (submit)="run()()">
+
+            <div class="image">
+                <img src="/assets/logo.PNG">
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <form [formGroup]="register" class="my-form" (submit)="run()">
                 <div class="forms">
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Name</ion-label>
@@ -86,7 +97,6 @@
                     <div class="error" *ngIf="register.get('password').hasError('maxlength') && register.get('password').touched">
                         Maximum 12 characters
                     </div>
-
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Confirm Password</ion-label>
                         <ion-input type="password" formControlName="cpassword"></ion-input>
@@ -109,6 +119,9 @@
                         <ion-label position="floating">Number</ion-label>
                         <ion-input formControlName="number" type="number" maxlength="10" [(ngModel)]="user.number"></ion-input>
                     </ion-item>
+                    <div class="error" *ngIf="register.get('number').hasError('number') && register.get('number').touched">
+                        Please enter your phone number
+                    </div>
                     <br>
                     <!-- <ion-item lines="none" color="transparent">
                         <ion-label class="group">Location</ion-label>
@@ -126,9 +139,9 @@
                     </ion-item> -->
                 </div>
                 <!-- <ion-button color="transparent"expand="full" fill="outline" (click)="back()" color="light">Submit</ion-button> -->
-                <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="run()">Submit</ion-button>
+                <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!register.valid" (click)="run()">sign up</ion-button>
 
-                <p style="text-align: center; color: white;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p>
+                <p style="text-align: center; color: black;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p>
 
             </form>
         </div>

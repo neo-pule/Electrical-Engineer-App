@@ -1,88 +1,61 @@
-<ion-content >
-
+<ion-content>
     <div>
         <ion-card class="header">
-            
             <img src="assets\logo.PNG" />
-
-
         </ion-card>
-        
     </div>
     <br>
     <div class="cat">
         <h4>Categories</h4>
     </div>
-
     <div *ngFor="let cat of items" class="category-block">
-
         <ion-row no-padding class="category-banner">
             <ion-col no-padding button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
-
             </ion-col>
         </ion-row>
-
         <ion-slides [options]="sliderConfig">
-
-            <ion-slide  (click)="nextPage()">
+            <ion-slide (click)="nextPage()">
                 <ion-card class="slide1">
-
                     <img src="assets/cardbg.jpg">
-
-
                 </ion-card>
-
             </ion-slide>
-            <ion-slide  (click)="presentModal()">
+            <ion-slide (click)="presentModal()">
                 <ion-card class="slide1">
-
                     <img src="assets/cardbg.jpg">
-
-
                 </ion-card>
-
             </ion-slide>
-            <ion-slide  (click)="presentModal()">
+            <ion-slide (click)="presentModal()">
                 <ion-card class="slide1">
-
                     <img src="assets/cardbg.jpg">
-
-
                 </ion-card>
-
             </ion-slide>
-            <ion-slide  (click)="presentModal()">
+            <ion-slide (click)="presentModal()">
                 <ion-card class="slide1">
-
                     <img src="assets/cardbg.jpg">
-
-
                 </ion-card>
-
             </ion-slide>
-
         </ion-slides>
     </div>
 
 
-    <div class="ion-padding">
+    <!-- <div class="ion-padding">
 
         <ion-item *ngFor="let x of array" (click)="clicked(x)">
 
-            <!-- {{x.name}} {{x.price}} {{x.type}} -->
+            {{x.name}} {{x.price}} {{x.type}}
             {{x.electrical}} {{x.engineering}} -- {{x.key}}
             <br> {{x.khokho}}
         </ion-item>
     </div>
-
+ -->
 
     <!-- <div class="feedback"> -->
-        
+
     <!-- </div> -->
 
     <br>
 
-   
+
 
 </ion-content>
 <div class="footer">

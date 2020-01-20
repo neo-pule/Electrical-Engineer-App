@@ -27,7 +27,7 @@
     display: grid;
     grid-template-rows: 10% 85%;
     height: 100%;
-    background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
+    // background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
     .top {
         width: 100%;
         box-shadow: 1px;
@@ -40,10 +40,10 @@
     .middle {
         padding-left: 10px;
         padding-right: 15px;
-        color: white;
+        color: black;
         #btn {
             background-color: #382323;
-            color: white;
+            color: black;
         }
         .error {
             color: #940a0a;
