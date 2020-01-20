@@ -33,7 +33,7 @@ export class SignInPage implements OnInit {
   temp2 : any;
   location ;
   day;
-
+kkk;
   name;
   descrp;
 request = {
@@ -78,8 +78,8 @@ stamp = Date();
   
   take(){
     // this.route.navigateByUrl('tab/request');
-    console.log(this.request.time  )
-    this.skill.addRequest(this.request);
+    console.log(this.kkk);
+    // this.skill.addRequest(this.request);
 
 
   }

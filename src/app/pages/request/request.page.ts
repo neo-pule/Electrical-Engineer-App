@@ -6,8 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request.page.scss'],
 })
 export class RequestPage implements OnInit {
-
+data = {
+  heading : "text",
+  para1 : "Lorem ipsum",
+  para2 : "adipiscing"
+};
   constructor() { }
+
+  ionViewWillEnter() {
+  
+     
+   
+  }
 
   ngOnInit() {
   }
