@@ -34,6 +34,10 @@ private obj: any;
 
 next1(){
   // this.route.navigateByUrl('/index');
+
+  localStorage.clear();
+  localStorage.setItem("name", this.obj.name);
+  localStorage.setItem("description", this.obj.description)
   
   this.route.navigate(['index'],{queryParams : {obj: this.obj}} );
 }
