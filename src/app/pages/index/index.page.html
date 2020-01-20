@@ -55,11 +55,7 @@
                     <br>
                     <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
                     <p style="text-align: center;">Don't have an accaunt sign up <a [routerLink]="['/sign-up']">here</a></p>
-
-
-                    <!-- <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="signUp()">Sign Up</ion-button> -->
-                    <!-- <p (click)="forgotpassword()">Forgot Password</p>
-                        <p (click)="registerPage()"> Dont have account? Sign Up</p> -->
+                    <p (click)="forgotpassword()">Forgot Password ? <a [routerLink]="['']">here</a></p>
                 </div>
 
             </form>

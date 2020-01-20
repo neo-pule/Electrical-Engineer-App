@@ -28,7 +28,7 @@ signIn(){
 
   this.guards.signIn(this.mail,this.pass);
  
-  // this.route.navigateByUrl('tab/sign-in');
+   this.route.navigateByUrl('tab/sign-in');
   console.log("sign In page");
 }
 signUp(){
