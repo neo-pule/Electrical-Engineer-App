@@ -15,14 +15,14 @@ export class AuthGuardService {
     private afs : AngularFirestore,
     public afAuth: AngularFireAuth) { 
     
-    //   var user = firebase.auth().currentUser;
-    // afAuth.auth.onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.route.navigateByUrl('tab/sign-in')
-    //   } else {
-    //     this.route.navigateByUrl('index')
-    //   }
-    // })
+      var user = firebase.auth().currentUser;
+    afAuth.auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.route.navigateByUrl('tab/sign-in')
+      } else {
+        this.route.navigateByUrl('index')
+      }
+    })
   
     this.afs.collection('services/').snapshotChanges().subscribe((data: any) => {
       this.array = data.map(e => {
@@ -60,8 +60,9 @@ signOut(){
 
     async signIn(email: string, password: string) {
       await this.afAuth.auth.signInWithEmailAndPassword(email, password).then((success) => {
-        alert(success)
-        console.log(success);
+        alert(email + " Succesful logged In")
+        console.log(success.user.email + " Succesful logged In");
+       this.route.navigateByUrl('tab/sign-in');
       }).catch((err) => {
         console.log(" error while " + err);
         alert(err)

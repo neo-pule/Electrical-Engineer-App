@@ -29,7 +29,7 @@
             </div>
             <ion-item color="transparent" class="group">
                 <ion-label position="floating">Password</ion-label>
-                <ion-input type="password" formControlName="password" maxlength="10" [(ngModel)]="pass"></ion-input>
+                <ion-input type="password" formControlName="password" maxlength="12" [(ngModel)]="pass"></ion-input>
             </ion-item>
             <div class="error" *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched">
                 Please input your password

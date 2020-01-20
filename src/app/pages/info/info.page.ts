@@ -5,6 +5,7 @@ import { ModalController } from '@ionic/angular';
 import { PopoverController } from '@ionic/angular';
 import { IndexPage } from '../../pages/index/index.page';
 import { SCCSkillsService } from 'src/app/services/scc-skills.service';
+import { User } from 'src/app/model/user';
 @Component({
   selector: 'app-info',
   templateUrl: './info.page.html',
@@ -25,6 +26,7 @@ private cost: string = null;
 private description: string = null;
 private coome: string = null;
 
+private usersAndComments = [];
 private obj: any;
 
   constructor(public popoverController: PopoverController,private addr : ActivatedRoute, 
@@ -70,8 +72,23 @@ async presentPopover(ev: any) {
       });
 
 
-      this.apiSerice.getDocComments(this.docKey).subscribe(data=>{
-        console.log(data)
+      console.log(this.docKey)
+      this.apiSerice.getDocComments(this.docKey).subscribe(arrayComments=>{
+
+        for(let comment of arrayComments){
+
+          let user = new User();
+          user.setId(comment.uid);
+          user.setComment(comment.message);
+
+          this.apiSerice.getUserDoc(user.getId()).subscribe(userData=>{
+            console.log(userData);
+
+            user.setName(userData.name);
+
+            this.usersAndComments.push(user);
+          });
+        }
       });
 
 

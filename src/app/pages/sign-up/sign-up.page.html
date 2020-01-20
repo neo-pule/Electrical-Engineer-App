@@ -53,8 +53,18 @@
 
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Address</ion-label>
-                        <ion-input type="text" formControlName="address" type="text" [(ngModel)]="user.address"></ion-input>
-                    </ion-item>
+                     
+                            <ion-input type="text" (ionInput)="search($event)"  [value]="selectedAddress" clearInput></ion-input>
+                        </ion-item>
+                        <div style="position: absolute; max-width: 90%; min-width: 90%; z-index: 999; " class="search">
+                            <ion-list lines="none" *ngIf="addresses.length > 0" color="lightb" style="background: var(--ion-item-background,var(--ion-background-color, black)); ">
+                                <ion-item *ngFor="let address of addresses ; let i=index" (click)="onSelect(address, i)" color="dark">
+                                    <ion-icon name="pin"></ion-icon>
+                                    <p class="searchv">{{ address}}</p>
+                                </ion-item>
+                            </ion-list>
+                        
+                        </div>
                     <div class="error" *ngIf="register.get('address').hasError('required') && register.get('address').touched">
                         Please input your address
                     </div>
@@ -97,7 +107,7 @@
                     <div class="error" *ngIf="register.get('cpassword').hasError('mustMatch') ">Passwords must match</div>
                     <ion-item color="transparent" class="group">
                         <ion-label position="floating">Number</ion-label>
-                        <ion-input type="text" formControlName="number" type="number" [(ngModel)]="user.number"></ion-input>
+                        <ion-input formControlName="number" type="number" maxlength="10" [(ngModel)]="user.number"></ion-input>
                     </ion-item>
                     <br>
                     <!-- <ion-item lines="none" color="transparent">
