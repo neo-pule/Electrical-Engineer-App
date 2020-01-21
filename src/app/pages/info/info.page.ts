@@ -26,7 +26,8 @@ private cost: string = null;
 private description: string = null;
 private coome: string = null;
 value: any;
-
+msg;
+name;
 private usersAndComments = [];
 private obj: any;
 
@@ -35,6 +36,10 @@ private obj: any;
 
 next1(){
   // this.route.navigateByUrl('/index');
+
+  localStorage.clear();
+  localStorage.setItem("name", this.obj.name);
+  localStorage.setItem("description", this.obj.description)
   
   this.route.navigate(['index'],{queryParams : {obj: this.obj}} );
 }
@@ -83,19 +88,26 @@ async presentPopover(ev: any) {
           let user = new User();
           user.setId(comment.uid);
           user.setComment(comment.message);
-
+          this.msg = comment.message
+          console.log(this.msg);
           this.apiSerice.getUserDoc(user.getId()).subscribe(userData=>{
             console.log(userData);
+        
 
             this.value = userData;
 
             user.setName(this.value.name);
+            this.name = this.value.name;
+            console.log( this.value.email);
+            // user.setName(userData.name);
+
+     
 
             console.log( this.value.name);
 
           //  user.setName(userData.data().name);
 
-           // this.usersAndComments.push(user);
+           this.usersAndComments.push(user);
           });
         }
       });

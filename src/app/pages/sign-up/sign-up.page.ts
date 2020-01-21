@@ -15,6 +15,7 @@ const { Camera } = Plugins;
   templateUrl: './sign-up.page.html',
   styleUrls: ['./sign-up.page.scss'],
 })
+
 export class SignUpPage implements OnInit {
   register: FormGroup;
   addresses = [];
@@ -59,12 +60,17 @@ export class SignUpPage implements OnInit {
     
 
   }
-//   onUpload(event) {
-//     console.log(event.target.files[0]);
-//    const id = Math.random().toString(36).substring(2);
-//    const file = event.target.files[0];
-//    const filePath = `uploads/profile_${id}`;
-   
+
+  getEmail(email) {
+    this.service.setEmail(email);
+  }
+
+  onUpload(event) {
+    console.log(event.target.files[0]);
+   const id = Math.random().toString(36).substring(2);
+   const file = event.target.files[0];
+   const filePath = `uploads/profile_${id}`;
+  }
 //    this.urlPath = filePath; //file.name)
 //    const ref = this.storage.ref(filePath);
 //    const task = this.storage.upload(filePath, file);  //private cam: Camera     creates a task that will start the upload immediately, no need to subscribe.

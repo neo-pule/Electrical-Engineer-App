@@ -139,7 +139,7 @@
                     </ion-item> -->
                 </div>
                 <!-- <ion-button color="transparent"expand="full" fill="outline" (click)="back()" color="light">Submit</ion-button> -->
-                <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!register.valid" (click)="run()">sign up</ion-button>
+                <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="run();getEmail(user.email)">Submit</ion-button>
 
                 <p style="text-align: center; color: black;">Already have an account ? <a [routerLink]="['/index']">sign in</a></p>
 

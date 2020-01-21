@@ -33,6 +33,9 @@ export class SignInPage implements OnInit {
   temp2 : any;
   location ;
   day;
+kkk;
+  name;
+  descrp;
 request = {
   day : "",
   stamp : Date.now(),
@@ -75,8 +78,8 @@ stamp = Date();
   
   take(){
     // this.route.navigateByUrl('tab/request');
-    console.log(this.request.time  )
-    this.skill.addRequest(this.request);
+    console.log(this.kkk);
+    // this.skill.addRequest(this.request);
 
 
   }
@@ -94,6 +97,13 @@ stamp = Date();
       this.temp2 = data.service;
       console.log(this.temp2);
     })
+
+    let name = localStorage.getItem("name");
+    let description = localStorage.getItem("description")
+
+    this.name = name;
+    this.descrp = description;
+    console.log(name+" -------- "+description)
   }
 
 }
