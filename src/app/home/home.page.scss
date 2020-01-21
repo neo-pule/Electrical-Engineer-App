@@ -1,45 +1,125 @@
-ion-content {
-    overflow-y: hidden;
-    // --background: rgb(212, 100, 100);
-    div {
-        top: 0;
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+ion-toolbar {
+    .header {
+        background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
+        // background: url(/assets/logo.PNG) 0 0/100% 100% no-repeat;
+        // height: 100%;
+        // background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.712)0%, rgb(29, 1, 1) 100%) !important;
+        top: 0px;
         margin: 0px;
-        padding: 0px;
-        .header {
-            //background: url('/assets/logo.PNG') no-repeat center center fixed;
-            // height: 100%;
-            // background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.712)0%, rgb(29, 1, 1) 100%) !important;
-            top: 0px;
-            margin: 0px;
-            width: 100%;
-            height: 30vh;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            border-top-right-radius: 0px;
-            border-top-left-radius: 0px;
-            box-shadow: 1px;
-        }
+        width: 100%;
+        height: auto;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+        box-shadow: none;
+        position: relative;
+        // overflow: hidden;
+        z-index: 1;
+    }
+
+    .header::before {
+        content: "";
+        top: 0px;bottom: 0px; left: 0px; right: 0px;
+        background-color: rgba(0,0,0,0.6);
+        position: absolute;
+        backdrop-filter: flur(10px);
+        z-index: -1;
     }
 }
 
+ion-content {
+    overflow-y: hidden;
+    // --background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
+    position: relative;
+    z-index: 1;
+    // background: rgba(0,0,0,0.8);
+    overflow: hidden;
+    // --background: rgb(212, 100, 100);
+    // div {
+    //     top: 0;
+    //     margin: 0px;
+    //     padding: 0px;
+    //     .header {
+    //         // background: url('/assets/logo.PNG') no-repeat center center fixed;
+    //         // background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
+    //         background: url(/assets/logo.PNG) 0 0/100% 100% no-repeat;
+    //         // height: 100%;
+    //         // background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.712)0%, rgb(29, 1, 1) 100%) !important;
+    //         top: 0px;
+    //         margin: 0px;
+    //         width: 100%;
+    //         height: 30vh;
+    //         border-bottom-left-radius: 0px;
+    //         border-bottom-right-radius: 0px;
+    //         border-top-right-radius: 0px;
+    //         border-top-left-radius: 0px;
+    //         box-shadow: none;
+    //         position: relative;
+    //         overflow: hidden;
+    //     }
+
+    //     .header::before {
+    //         content: "";
+    //         top: 0px;bottom: 0px; left: 0px; right: 0px;
+    //         background-color: rgba(255,255,255,0.6);
+    //         position: absolute;
+    //         backdrop-filter: flur(10px);
+    //     }
+    // }
+}
+
+// ion-content::before {
+//     content: "";
+//     top: 0px;bottom: 0px;left: 0px;right: 0px;
+//     position: absolute;
+//     background-color: rgba(0,0,0,0.7);
+//     z-index: -1;
+// }
+
 .slide1 {
     // margin: 0px;
-    // width: 90%;
-    height: 350px;
-    align-content: center;
+    width: 100%;
+    height: 280px;
+    background: url("/assets/electric.png") no-repeat center center / cover;
+    // height: 300px;
+    // align-content: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
-    background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.712)0%, rgba(29, 1, 1, 0.712) 100%) !important;
-    color: white;
+    // background-image: linear-gradient(197deg, rgba(184, 19, 19, 0.712)0%, rgba(29, 1, 1, 0.712) 100%) !important;
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+    // justify-content: center;
+    position: relative;
+    z-index: 1;
+    background: rgba(255,255,255,0.6);
+    overflow: hidden;
+    // div {
+    //     background: url("/assets/electric.png") no-repeat center center / cover;
+    //     height: 50%;
+    // }
 }
 
+// .slide1::before {
+//     content: "";
+//     top: 0px;left: 0px;right: 0px;bottom: 0px;
+//     position: absolute;
+//     background: rgba(0,0,0,0.3);
+//     backdrop-filter: blur(10px);
+//     z-index: -1;
+// }
 .cat {
     width: 100%;
-    background: rgb(201, 36, 36);
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    // font-family: 'Times New Roman', Times, serif;
+    font-family: 'Quicksand', sans-serif;
+    h4 {
+        margin-left: 20px;
+    }
 }
 
 .feedback {
@@ -51,4 +131,14 @@ ion-content {
 .slide {
     position: relative;
     height: 100%;
+}
+
+ion-content .footer {
+    margin-bottom: 0px;
+    // background: rgba(0,0,0,0.3);
+    margin-left: 20px;
+    span {
+        font-family: 'Quicksand', sans-serif;
+        color: black;
+    }
 }

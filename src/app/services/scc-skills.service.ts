@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {AngularFirestoreDocument} from '@angular/fire/firestore';
-
+import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 })
 export class SCCSkillsService {
 
-  
-collRef;
+  UserArray = [];
+  Email;
+
   item : any =  {
     khokho : [],
     electrical : "",
@@ -38,7 +39,7 @@ private data=[{
 
   constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore,private route : Router) { 
     // s
-    this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
+    // this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
   }
 
 
@@ -132,5 +133,24 @@ private data=[{
 
   // return this.dog.doc<Item>('services/' + key).delete();
 
+  }
+
+  setEmail(email) {
+    this.Email = email;
+  }
+
+  getUser() {
+    return firebase.firestore().collection("user/").get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        console.log(doc.id);
+
+        if(this.Email == doc.data().email){
+          this.UserArray.push(doc.data())
+        }else{
+        }
+      })
+
+      return this.UserArray;
+    })
   }
 }

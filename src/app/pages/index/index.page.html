@@ -19,7 +19,7 @@
             <br>
             <br>
 
-            {{kk | json}}
+         
 
 
 
@@ -55,9 +55,12 @@
                         Maximum 12 characters
                     </div>
                     <br>
-                    <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn()">Sign In</ion-button>
-                    <p style="text-align: center;">Don't have an accaunt sign up <a [routerLink]="['/sign-up']">here</a></p>
-                    <p>Forgot Password ? <a (click)="resetPass()">here</a></p>
+                    <p style="text-align: center;">Forgot password ? <a [routerLink]="['/forgot-pass']">here</a></p>
+                    <ion-button id="btn" expand="block" fill="outline" color="transparent" [disabled]="!loginForm.valid" (click)=" signIn();getEmail(mail)">Sign In</ion-button>
+
+                    <ion-button id="btn" expand="block" fill="outline" color="transparent" (click)="signUp()">Sign Up</ion-button>
+                    <!-- <p (click)="forgotpassword()">Forgot Password</p>
+                        <p (click)="registerPage()"> Dont have account? Sign Up</p> -->
                 </div>
 
             </form>

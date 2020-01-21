@@ -13,7 +13,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class HomePage implements OnInit {
 
-  
+  ServiceType = ["New Installation","Repair","Inspection"];
 
   booking=[];
   items=[];
@@ -81,6 +81,14 @@ put1(){
   nextPage()
 {
   this.route.navigateByUrl('/tab/menu');
+}
+installPage()
+{
+  this.route.navigateByUrl('/install');
+}
+inspectPage()
+{
+  this.route.navigateByUrl('/inspect');
 }
   
 }
