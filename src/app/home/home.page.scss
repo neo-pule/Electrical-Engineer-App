@@ -9,14 +9,14 @@ ion-toolbar {
         top: 0px;
         margin: 0px;
         width: 100%;
-        height: 130px;
+        height: auto;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
         border-top-right-radius: 0px;
         border-top-left-radius: 0px;
         box-shadow: none;
         position: relative;
-        overflow: hidden;
+        // overflow: hidden;
         z-index: 1;
     }
 
@@ -82,9 +82,9 @@ ion-content {
 .slide1 {
     // margin: 0px;
     width: 100%;
-    height: 350px;
-    background: url("/assets/electric.png") no-repeat center center / cover;
     height: 280px;
+    background: url("/assets/electric.png") no-repeat center center / cover;
+    // height: 300px;
     // align-content: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -117,7 +117,9 @@ ion-content {
     color: black;
     // font-family: 'Times New Roman', Times, serif;
     font-family: 'Quicksand', sans-serif;
-    text-align: center;
+    h4 {
+        margin-left: 20px;
+    }
 }
 
 .feedback {
@@ -132,9 +134,9 @@ ion-content {
 }
 
 ion-content .footer {
-    text-align: center;
     margin-bottom: 0px;
     // background: rgba(0,0,0,0.3);
+    margin-left: 20px;
     span {
         font-family: 'Quicksand', sans-serif;
         color: black;

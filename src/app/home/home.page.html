@@ -1,13 +1,36 @@
 <ion-toolbar>
     <ion-card class="header">
-        <nav style = "margin: 30px 50px;overflow: hidden;">
-            <p>
-                <img src="assets\logo.PNG" style = "width: 50px; height: 30px;border-radius: 60px;"/>
-                <label style = "color: white;">
+        <ion-card-header>
+          <ion-card-title style = "text-align: center;">
+              <!-- <tr>
+                  <td>
+                    <nav style = "border: 1px red solid;border-radius: 55px;overflow: hidden;width: 70; height: 40px;align-content: center;">
+                        <img src="assets\logo.PNG" style = "width: 50px; height: 30px;"/>
+                    </nav>
+                  </td>
+
+                  <td style = "text-align: center;text-align: center;">
+                    <label style = "color: white;font-size: 15px;">
+                        SCC(PTY)LTD
+                    </label>
+                  </td>
+              </tr> -->
+
+              <nav style = "border-bottom: 1px solid white;">
+                <label style = "color: white;font-size: 15px;">
                     SCC(PTY)LTD
                 </label>
-            </p>
-        </nav>
+              </nav>
+          </ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content style = "text-align: center;margin-top: 10px;">
+          <p>
+            <ion-icon name="mail" style = "color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+            <ion-icon name="call" style = "color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+            <ion-icon name="logo-whatsapp" style = "color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+          </p>
+        </ion-card-content>
     </ion-card>
 </ion-toolbar>
 
@@ -36,11 +59,11 @@
             <ion-slide *ngFor = "let service_type of ServiceType" (click)="nextPage()">
                 <ion-card class="slide1">
                     <div>
-                        <img src = "/assets/Instalation 1.png" style = "width: 100%;height: 210px;background-color: rgba(0,0,0,0.2);" *ngIf = "service_type == 'New Installation'"/>
-                        <img src = "/assets/Repair 1.png" style = "width: 100%;height: 210px;background-color: rgba(0,0,0,0.2);" *ngIf = "service_type == 'Repair'"/>
+                        <img src = "/assets/Instalation 1.png" style = "width: 100%;height: 220px;background-color: rgba(0,0,0,0.2);" *ngIf = "service_type == 'New Installation'"/>
+                        <img src = "/assets/Repair 1.png" style = "width: 100%;height: 220px;background-color: rgba(0,0,0,0.2);" *ngIf = "service_type == 'Repair'"/>
                         <img src = "/assets/Inspection 1.png" style = "width: 100%;height: 210px;background-color: rgba(0,0,0,0.2);" *ngIf = "service_type == 'Inspection'"/>
                     </div>
-                    <h3>{{service_type}}</h3>
+                    <h3 style = "font-size: 18px;float: left;margin-left: 5px;">{{service_type}}</h3>
                 </ion-card>
             </ion-slide>
         </ion-slides>
@@ -67,10 +90,13 @@
    
     <div class="footer">
         <span class="ion-text-center">Contact Us</span>
-        <div class="icons" style="text-align: center; margin-top: 20px;">
-            <img src = "/assets/logo/icons8-facebook-f-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/>
+        <div class="icons" style="text-align: center; margin-top: 15px;">
+            <ion-icon name="logo-facebook" style = "color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+            <ion-icon name="logo-instagram" style = "color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+            <ion-icon name="logo-twitter" style = "color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+            <!-- <img src = "/assets/logo/icons8-facebook-f-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/>
             <img src = "/assets/logo/icons8-instagram-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/>
-            <img src = "/assets/logo/icons8-twitter-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/>
+            <img src = "/assets/logo/icons8-twitter-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/> -->
         </div>
     </div>
 </ion-content>
