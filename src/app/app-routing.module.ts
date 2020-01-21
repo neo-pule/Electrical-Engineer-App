@@ -49,6 +49,14 @@ const routes: Routes = [
     path: 'forgot-pass',
     loadChildren: () => import('./pages/forgot-pass/forgot-pass.module').then( m => m.ForgotPassPageModule)
   },
+  {
+    path: 'install',
+    loadChildren: () => import('./pages/install/install.module').then( m => m.InstallPageModule)
+  },
+  {
+    path: 'inspect',
+    loadChildren: () => import('./pages/inspect/inspect.module').then( m => m.InspectPageModule)
+  },
  
 
 ];
