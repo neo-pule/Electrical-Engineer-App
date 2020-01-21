@@ -1,74 +1,66 @@
-<ion-header>
-<ion-toolbar>
-    <ion-card class="header">
-        <ion-card-header>
-          <ion-card-title style = "text-align: center;">
-              <!-- <tr>
-                  <td>
-                    <nav style = "border: 1px red solid;border-radius: 55px;overflow: hidden;width: 70; height: 40px;align-content: center;">
-                        <img src="assets\logo.PNG" style = "width: 50px; height: 30px;"/>
-                    </nav>
-                  </td>
-
-                  <td style = "text-align: center;text-align: center;">
-                    <label style = "color: white;font-size: 15px;">
+<ion-content>
+    <div class="main">
+        <div class="top">
+            <ion-card class="header">
+                <ion-card-header>
+                    <ion-card-title style="text-align: center;">
+                        <nav style="border-bottom: 1px solid white;">
+                            <label style="color: white;font-size: 15px;">
                         SCC(PTY)LTD
                     </label>
-                  </td>
-              </tr> -->
+                        </nav>
+                    </ion-card-title>
+                </ion-card-header>
 
-              <nav style = "border-bottom: 1px solid white;">
-                <label style = "color: white;font-size: 15px;">
-                    SCC(PTY)LTD
-                </label>
-              </nav>
-          </ion-card-title>
-        </ion-card-header>
-      
-        <ion-card-content style = "text-align: center;margin-top: 10px;">
-          <p>
-            <ion-icon name="mail" style = "color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
-            <ion-icon name="call" style = "color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
-            <ion-icon name="logo-whatsapp" style = "color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
-          </p>
-        </ion-card-content>
-    </ion-card>
-</ion-toolbar>
+                <ion-card-content style="text-align: center;margin-top: 10px;">
+                    <p>
+                        <ion-icon name="mail" style="color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+                        <ion-icon name="call" style="color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+                        <ion-icon name="logo-whatsapp" style="color: white;width: 20px;height: 20px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+                    </p>
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="middle">
+            <div class="cat">
+                <h4>Categories</h4>
+            </div>
+            <div *ngFor="let cat of items" class="category-block">
+                <ion-row no-padding class="category-banner">
+                    <ion-col no-padding button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
+                    </ion-col>
+                </ion-row>
+                <ion-slides [options]="sliderConfig">
 
-<ion-content >
+                    <ion-slide *ngFor="let service_type of ServiceType">
+                        <ion-card class="slide1">
+                            <div>
+                                <img src="/assets/Instalation 1.png" style="width: 100%;height: 220px;background-color: rgba(0,0,0,0.2);" (click)="installPage()" *ngIf="service_type == 'New Installation'" />
+                                <img src="/assets/Repair 1.png" style="width: 100%;height: 220px;background-color: rgba(0,0,0,0.2);" (click)="nextPage()" *ngIf="service_type == 'Repair'" />
+                                <img src="/assets/Inspection 1.png" style="width: 100%;height: 210px;background-color: rgba(0,0,0,0.2);" (click)="inspectPage()" *ngIf="service_type == 'Inspection'" />
+                            </div>
+                            <h3 style="font-size: 18px;float: left;margin-left: 5px;">{{service_type}}</h3>
+                        </ion-card>
+                    </ion-slide>
+                </ion-slides>
+            </div>
 
-    <!-- <div>
-        <ion-card class="header">
-            
-            <img src="assets\logo.PNG"/>
+        </div>
+        <div class="bottom">
+            <div class="footer">
+                <span class="ion-text-center">Contact Us</span>
+                <div class="icons" style="text-align: center; margin-top: 15px;">
+                    <ion-icon name="logo-facebook" style="color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+                    <ion-icon name="logo-instagram" style="color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+                    <ion-icon name="logo-twitter" style="color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
 
+                </div>
+            </div>
+        </div>
+    </div>
 
-        </ion-card>
-        
-    </div> -->
     <br>
-    <div class="cat">
-        <h4>Categories</h4>
-    </div>
-    <div *ngFor="let cat of items" class="category-block">
-        <ion-row no-padding class="category-banner">
-            <ion-col no-padding button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
-            </ion-col>
-        </ion-row>
-        <ion-slides [options]="sliderConfig">
 
-            <ion-slide *ngFor = "let service_type of ServiceType" >
-                <ion-card class="slide1">
-                    <div>
-                        <img src = "/assets/Instalation 1.png" style = "width: 100%;height: 220px;background-color: rgba(0,0,0,0.2);" (click)="installPage()" *ngIf = "service_type == 'New Installation'"/>
-                        <img src = "/assets/Repair 1.png" style = "width: 100%;height: 220px;background-color: rgba(0,0,0,0.2);" (click)="nextPage()" *ngIf = "service_type == 'Repair'"/>
-                        <img src = "/assets/Inspection 1.png" style = "width: 100%;height: 210px;background-color: rgba(0,0,0,0.2);" (click)="inspectPage()" *ngIf = "service_type == 'Inspection'"/>
-                    </div>
-                    <h3 style = "font-size: 18px;float: left;margin-left: 5px;">{{service_type}}</h3>
-                </ion-card>
-            </ion-slide>
-        </ion-slides>
-    </div>
 
 
     <!-- <div class="ion-padding">
@@ -86,25 +78,16 @@
 
     <!-- </div> -->
 
-    <br>
+    <!-- <br>
 
-   
-    <div class="footer">
-        <span class="ion-text-center">Contact Us</span>
-        <div class="icons" style="text-align: center; margin-top: 15px;">
-            <ion-icon name="logo-facebook" style = "color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
-            <ion-icon name="logo-instagram" style = "color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
-            <ion-icon name="logo-twitter" style = "color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
-            <!-- <img src = "/assets/logo/icons8-facebook-f-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/>
-            <img src = "/assets/logo/icons8-instagram-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/>
-            <img src = "/assets/logo/icons8-twitter-500.png" style = "width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"/> -->
-        </div>
-    </div>
+
+        <div class="footer">
+            <span class="ion-text-center">Contact Us</span>
+            <div class="icons" style="text-align: center; margin-top: 15px;">
+                <ion-icon name="logo-facebook" style="color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+                <ion-icon name="logo-instagram" style="color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+                <ion-icon name="logo-twitter" style="color: black;width: 27px;height: 27px;margin-left: 10px;margin-right: 10px;"></ion-icon>
+
+            </div>
+        </div> -->
 </ion-content>
-
-<!-- <div class="footer">
-    <span class="ion-text-center">Contact Us</span>
-    <div class="icons" style="text-align: center;">
-        
-    </div>
-</div> -->

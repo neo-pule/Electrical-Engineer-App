@@ -1,14 +1,21 @@
-.container-contact100{
-
-  position: absolute;
-  top: 45%;
- transform: translateY(-50%);
- margin: 30px;
-
- }
- form{
-  position: absolute;
-  top: 45%;
-transform: translateY(-50%);
-margin: 30px; 
- }
+.main {
+    display: grid;
+    grid-template-rows: 8% 92%;
+    height: 100%;
+    .top {
+        width: 100%;
+        box-shadow: 1px;
+        background-color: #940a0a;
+        h2 {
+            text-align: center;
+            color: white;
+        }
+    }
+    .middle {
+        padding: 25px;
+        #btn {
+            background: #940a0a;
+            color: white;
+        }
+    }
+}
