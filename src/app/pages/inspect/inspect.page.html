@@ -3,10 +3,38 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
   </ion-buttons>
-    <ion-title>inspect</ion-title>
+    <ion-title>Inspection </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <span>Please describe what you need help with .. </span>
+  <ion-list>
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-label>fix</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>repair</ion-label>
+        <ion-radio slot="start" value="biff" checked></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>install</ion-label>
+        <ion-radio slot="start" value="griff"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>faulty</ion-label>
+        <ion-radio slot="start" value="buford"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-item>
+    <ion-label position="floating">Please  write anything else that you would to add to request with the Installation service</ion-label>
+  <ion-textarea clearOnEdit="true" placeholder="Enter any notes here..."></ion-textarea>
+  </ion-item>
+  <ion-button (click)="run()" >Submit</ion-button>
 </ion-content>

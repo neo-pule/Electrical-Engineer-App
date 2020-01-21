@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-install',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstallPage implements OnInit {
 
-  constructor() { }
+  constructor(private route : Router) { }
 
+  run(){
+    this.route.navigateByUrl("index");
+  }
   ngOnInit() {
   }
 
