@@ -3,10 +3,10 @@
     display: grid;
     grid-template-rows: 20% 60% auto;
     height: 100%;
-    overflow-y: hidden;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+    // overflow-y: hidden;
+    // position: relative;
+    // z-index: 1;
+    // overflow: hidden;
     .top {
         .header {
             background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
@@ -72,7 +72,7 @@
             height: 100%;
         }
     }
-    .bottom {}
+    // .bottom {}
 }
 
 // ion-content .footer {
