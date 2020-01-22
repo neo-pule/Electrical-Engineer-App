@@ -75,6 +75,11 @@ stamp = Date();
     });
     return await popover.present();
   }
+
+  backtoinfo()
+  {
+      this.route.navigateByUrl('tab/info');
+  }
   
   take(){
     // this.route.navigateByUrl('tab/request');

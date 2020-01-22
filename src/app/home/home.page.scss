@@ -59,7 +59,7 @@
             color: black;
             font-family: 'Quicksand', sans-serif;
             h4 {
-                margin-left: 20px;
+                margin-left: 0px;
             }
         }
         .feedback {
@@ -75,11 +75,11 @@
     // .bottom {}
 }
 
-// ion-content .footer {
-//     margin-bottom: 0px;
-//     margin-left: 20px;
-//     span {
-//         font-family: 'Quicksand', sans-serif;
-//         color: black;
-//     }
-// }
+.footer {
+    margin-bottom: 0px;
+    margin-left: 20px;
+    span {
+        font-family: 'Quicksand', sans-serif;
+        color: black;
+    }
+}

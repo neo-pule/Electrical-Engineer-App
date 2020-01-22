@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+.main {
+    display: grid;
+    grid-template-rows: 8% 94%;
+    height: 100%;
+    .top {
+        width: 100%;
+        box-shadow: 1px;
+        background-color: #940a0a;
+        h5 {
+            top: 0px;
+            color: white;
+            text-align: center;
+        }
+    }
+    .middle {
+        padding: 20px;
+        #btn {
+            background-color: #940a0a;
+            color: white;
+        }
+        .danger {
+            background-color: #940a0a;
+            color: white;
+        }
+    }
+}

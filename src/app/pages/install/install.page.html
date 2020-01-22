@@ -1,12 +1,105 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-  </ion-buttons>
-    <ion-title>install</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar color="danger">
+        <!-- <ion-buttons slot="start"> -->
+        <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back" (click)="BackHome()"></ion-icon>
 
+        <ion-title>Home Wiring</ion-title>
+    </ion-toolbar>
+</ion-header>
 <ion-content>
+    <div class="main">
+        <!-- <div class="top">
+            <ion-icon ios="ios-arrow-round-back" md="md-arrow-round-back" ></ion-icon>
+            <h5> Home Wiring</h5>
+        </div> -->
+        <div class="middle">
+            <span text-wrap> <b>Describe the nature of the problem:</b></span>
+            <br>
+            <br>
+            <br>
+            <form>
+                <ion-item lines="none">
+                    <ion-label position="floating">number of rooms to install</ion-label>
+
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                        <ion-select-option value="3">3</ion-select-option>
+                        <ion-select-option value="4">4</ion-select-option>
+                        <ion-select-option value="5">5</ion-select-option>
+                        <ion-select-option value="6">6</ion-select-option>
+                        <ion-select-option value="7">7</ion-select-option>
+                        <ion-select-option value="8">8</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="floating">number of plugs per room </ion-label>
+
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                        <ion-select-option value="3">3</ion-select-option>
+                        <ion-select-option value="4">4</ion-select-option>
+                        <ion-select-option value="5">5</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="floating">number of light bulb per room </ion-label>
+
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                        <ion-select-option value="3">3</ion-select-option>
+                        <ion-select-option value="4">4</ion-select-option>
+                        <ion-select-option value="5">5</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="floating">number of bathrooms in the house</ion-label>
+
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                        <ion-select-option value="3">3</ion-select-option>
+
+                    </ion-select>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="floating">number of louge rooms in the house</ion-label>
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                        <ion-select-option value="3">3</ion-select-option>
+
+                    </ion-select>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="floating">number of kitchen rooms in the house</ion-label>
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss" color="danger">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                    </ion-select>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label position="floating">number of geysers in the house</ion-label>
+
+                    <ion-select value="1" okText="Okay" cancelText="Dismiss">
+                        <ion-select-option value="1">1</ion-select-option>
+                        <ion-select-option value="2">2</ion-select-option>
+                        <ion-select-option value="3">3</ion-select-option>
+
+                    </ion-select>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label position="floating"><b>More details of your problem</b></ion-label>
+                    <ion-textarea clearOnEdit="true" placeholder="Enter any notes here..."></ion-textarea>
+                </ion-item>
+                <br>
+                <ion-button id="btn" expand="block" fill="outline" (click)="run()" slot="end">Submit</ion-button>
+            </form>
+
+        </div>
+    </div>
 
 </ion-content>

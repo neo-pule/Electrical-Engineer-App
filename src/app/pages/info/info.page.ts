@@ -44,7 +44,7 @@ next1(){
   this.route.navigate(['index'],{queryParams : {obj: this.obj}} );
 }
 back(){
-  this.route.navigateByUrl('/menu');
+  this.route.navigateByUrl('tab/menu');
 }
 async presentModal() {
   const modal = await this.modalCtrl.create({
