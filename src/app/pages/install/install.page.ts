@@ -13,6 +13,10 @@ export class InstallPage implements OnInit {
   run(){
     this.route.navigateByUrl("index");
   }
+
+  BackHome(){
+    this.route.navigateByUrl("home");
+  }
   ngOnInit() {
   }
 

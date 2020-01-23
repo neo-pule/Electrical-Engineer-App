@@ -3,10 +3,10 @@
     display: grid;
     grid-template-rows: 20% 60% auto;
     height: 100%;
-    overflow-y: hidden;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
+    // overflow-y: hidden;
+    // position: relative;
+    // z-index: 1;
+    // overflow: hidden;
     .top {
         .header {
             background: url(/assets/images.jpg) 0 0/100% 100% no-repeat;
@@ -59,7 +59,7 @@
             color: black;
             font-family: 'Quicksand', sans-serif;
             h4 {
-                margin-left: 20px;
+                margin-left: 0px;
             }
         }
         .feedback {
@@ -72,14 +72,14 @@
             height: 100%;
         }
     }
-    .bottom {}
+    // .bottom {}
 }
 
-// ion-content .footer {
-//     margin-bottom: 0px;
-//     margin-left: 20px;
-//     span {
-//         font-family: 'Quicksand', sans-serif;
-//         color: black;
-//     }
-// }
+.footer {
+    margin-bottom: 0px;
+    margin-left: 20px;
+    span {
+        font-family: 'Quicksand', sans-serif;
+        color: black;
+    }
+}

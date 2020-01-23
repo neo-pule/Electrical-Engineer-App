@@ -149,6 +149,7 @@ private data=[{
           console.log("request added successful ..");
           console.log(item.stamp);
           console.log(item.description);
+          this.route.navigateByUrl('tab/request');
 
       });
     

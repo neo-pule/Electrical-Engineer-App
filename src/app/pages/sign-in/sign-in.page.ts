@@ -44,6 +44,7 @@ kkk;
   name;
   descrp;
 request = {
+  refNo : "",
   day : "",
   stamp : Date.now(),
   coords: [],
@@ -89,8 +90,17 @@ arr;
     });
     return await popover.present();
   }
+
+  backtoinfo()
+  {
+      this.route.navigateByUrl('tab/info');
+  }
   
   take(){
+    this.request.distance = this.KM;
+    this.request.refNo = this.ref;
+    this.request.transFee = this.cost;
+    console.log(this.request)
     // this.route.navigateByUrl('tab/request');
     // this.skill.UserDoc().subscribe((data) => {
     //   console.log(data)

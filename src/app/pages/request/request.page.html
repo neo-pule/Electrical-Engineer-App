@@ -1,11 +1,15 @@
+<ion-header>
+    <ion-toolbar color="danger">
+        <ion-title>Customer's Requests</ion-title>
+    </ion-toolbar>
+</ion-header>
 <ion-content>
-    <ion-button (click)="run()">OO</ion-button>
     <div class="main" *ngIf="afAuth.auth.currentUser; else logOut">
-        <div class="top">
+        <!-- <div class="top">
             <h2>Customer's Requests</h2>
 
-            {{id}}
-        </div>
+            
+        </div> -->
         <div class="middle">
             <br>
             <br>
@@ -22,50 +26,14 @@
                     </ion-col>
                     <ion-col>
                         <ion-fab vertical="bottom" horizontal="end">
-                            <!-- <ion-fab-button id="btn" (click)="information()"> -->
+                             <ion-fab-button id="btn" (click)="information()"> 
                             <ion-icon id="btn" name="information"></ion-icon>
-                            <!-- </ion-fab-button> -->
+                             </ion-fab-button> 
                         </ion-fab>
                     </ion-col>
                 </ion-row>
             </div>
-            <!-- <div class="card1">
-                <div id="indicator"></div>
-                <h2> Client Name</h2>
-                <p>ref Number: 23498235259 </p>
-                <p>cost : R42</p>
-                <ion-row>
-                    <ion-col>
-                        <p>Date:</p>
-                    </ion-col>
-                    <ion-col>
-                        <ion-fab vertical="bottom" horizontal="end">
-                            <!-- <ion-fab-button id="btn" (click)="information()"> ->
-                            <ion-icon id="btn" name="information"></ion-icon>
-                            <!-- </ion-fab-button> --
-                        </ion-fab>
-                    </ion-col>
-                </ion-row>
-            </div>
-
-            <div class="card2">
-                <div id="indicator"></div>
-                <h2> Client Name</h2>
-                <p>ref Number: 23498235259 </p>
-                <p>cost : R42</p>
-                <ion-row>
-                    <ion-col>
-                        <p>Date:</p>
-                    </ion-col>
-                    <ion-col>
-                        <ion-fab vertical="bottom" horizontal="end">
-                            <!-- <ion-fab-button id="btn" (click)="information()"> ->
-                            <ion-icon id="btn" name="information"></ion-icon>
-                            <!-- </ion-fab-button> --
-                        </ion-fab>
-                    </ion-col>
-                </ion-row>
-            </div> -->
+     
         </div>
     </div>
     <ng-template #logOut >
@@ -174,7 +142,6 @@
           </div>
     </ng-template>
    
-      
 
 
 </ion-content>

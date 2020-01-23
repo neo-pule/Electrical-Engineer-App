@@ -12,6 +12,9 @@ export class InspectPage implements OnInit {
   run(){
     this.route.navigateByUrl("index");
   }
+  BacktoHome(){
+    this.route.navigateByUrl("home");
+  }
   ngOnInit() {
   }
 
