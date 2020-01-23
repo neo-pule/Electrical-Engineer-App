@@ -1,4 +1,10 @@
-<ion-header>
+<!-- <ion-header>
+    <ion-toolbar color="danger">
+        <ion-title>Customer's Requests</ion-title>
+    </ion-toolbar>
+</ion-header> -->
+<ion-content>
+    <ion-header>
     <ion-toolbar color="danger">
         <ion-title>Customer's Requests</ion-title>
     </ion-toolbar>
@@ -7,10 +13,148 @@
     <div class="main" *ngIf="afAuth.auth.currentUser; else logOut">
         <!-- <div class="top">
             <h2>Customer's Requests</h2>
-
             
         </div> -->
         <div class="middle">
+            <br>
+            <br>
+            <div class="card" *ngFor="let item of arr">
+                <div id="indicator"></div>
+                <h5>Request Type : {{item.type}}</h5>
+                <h6> Request Time {{item.stamp | date : 'shortTime'}}</h6>
+                <p>ref Number:{{item.distance}}</p>
+                <p>cost : R{{item.transFee}}</p>
+                <ion-row>
+                    <ion-col>
+                        <p>Date: {{item.day}}</p>
+                        <p>Time: {{item.time}}</p>
+                    </ion-col>
+                    <ion-col>
+                        <ion-fab vertical="bottom" horizontal="end">
+                             <ion-fab-button id="btn" (click)="information()"> 
+                            <ion-icon id="btn" name="information"></ion-icon>
+                             </ion-fab-button> 
+                        </ion-fab>
+                    </ion-col>
+                </ion-row>
+            </div>
+     
+        </div>
+    </div>
+    <ng-template #logOut >
+        <div>
+            <p><a (click)="runs()">Log in </a> to view Request</p>
+            <ion-list>
+    
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+    
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+          </div>
+    </ng-template>
+   
+</ion-content>
+    <!-- <div class="main" *ngIf="afAuth.auth.currentUser; else logOut"> -->
+        <!-- <div class="top">
+            <h2>Customer's Requests</h2>
+
+            
+        </div> -->
+        <!-- <div class="middle">
             <br>
             <br>
             <div class="card" *ngFor="let item of arr">
@@ -143,5 +287,6 @@
     </ng-template>
    
 
+ -->
 
 </ion-content>
