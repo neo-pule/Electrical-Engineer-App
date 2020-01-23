@@ -1,19 +1,24 @@
 <ion-content>
-    <div class="main">
+    <ion-button (click)="run()">OO</ion-button>
+    <div class="main" *ngIf="afAuth.auth.currentUser; else logOut">
         <div class="top">
             <h2>Customer's Requests</h2>
+
+            {{id}}
         </div>
         <div class="middle">
             <br>
             <br>
-            <div class="card">
+            <div class="card" *ngFor="let item of arr">
                 <div id="indicator"></div>
-                <h2> Client Name</h2>
-                <p>ref Number: 23498235259 </p>
-                <p>cost : R42</p>
+                <h2>Request Type : {{item.type}}</h2>
+                <h3> Request Time {{item.stamp | date : 'shortTime'}}</h3>
+                <p>ref Number:{{item.distance}}</p>
+                <p>cost : R{{item.transFee}}</p>
                 <ion-row>
                     <ion-col>
-                        <p>Date:</p>
+                        <p>Date: {{item.day}}</p>
+                        <p>Time: {{item.time}}</p>
                     </ion-col>
                     <ion-col>
                         <ion-fab vertical="bottom" horizontal="end">
@@ -24,7 +29,7 @@
                     </ion-col>
                 </ion-row>
             </div>
-            <div class="card1">
+            <!-- <div class="card1">
                 <div id="indicator"></div>
                 <h2> Client Name</h2>
                 <p>ref Number: 23498235259 </p>
@@ -35,9 +40,9 @@
                     </ion-col>
                     <ion-col>
                         <ion-fab vertical="bottom" horizontal="end">
-                            <!-- <ion-fab-button id="btn" (click)="information()"> -->
+                            <!-- <ion-fab-button id="btn" (click)="information()"> ->
                             <ion-icon id="btn" name="information"></ion-icon>
-                            <!-- </ion-fab-button> -->
+                            <!-- </ion-fab-button> --
                         </ion-fab>
                     </ion-col>
                 </ion-row>
@@ -54,124 +59,122 @@
                     </ion-col>
                     <ion-col>
                         <ion-fab vertical="bottom" horizontal="end">
-                            <!-- <ion-fab-button id="btn" (click)="information()"> -->
+                            <!-- <ion-fab-button id="btn" (click)="information()"> ->
                             <ion-icon id="btn" name="information"></ion-icon>
-                            <!-- </ion-fab-button> -->
+                            <!-- </ion-fab-button> --
                         </ion-fab>
                     </ion-col>
                 </ion-row>
-            </div>
+            </div> -->
         </div>
     </div>
-    <!-- <div>
+    <ng-template #logOut >
+        <div>
+            <p><a (click)="runs()">Log in </a> to view Request</p>
+            <ion-list>
+    
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+    
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+          </div>
+    </ng-template>
+   
       
-        <ion-list>
-
-            <ion-item>
-                <ion-thumbnail slot="start">
-                    <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                </ion-thumbnail>
-                <ion-label>
-                    <h3>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </h3>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                </ion-label>
-            </ion-item>
-            <ion-item>
-                <ion-thumbnail slot="start">
-                    <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                </ion-thumbnail>
-                <ion-label>
-                    <h3>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </h3>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                </ion-label>
-            </ion-item>
-            <ion-item>
-                <ion-thumbnail slot="start">
-                    <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                </ion-thumbnail>
-                <ion-label>
-                    <h3>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </h3>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                </ion-label>
-            </ion-item>
-
-            <ion-item>
-                <ion-thumbnail slot="start">
-                    <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                </ion-thumbnail>
-                <ion-label>
-                    <h3>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </h3>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                </ion-label>
-            </ion-item>
-            <ion-item>
-                <ion-thumbnail slot="start">
-                    <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                </ion-thumbnail>
-                <ion-label>
-                    <h3>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </h3>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                </ion-label>
-            </ion-item>
-            <ion-item>
-                <ion-thumbnail slot="start">
-                    <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                </ion-thumbnail>
-                <ion-label>
-                    <h3>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </h3>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                    <p>
-                        <ion-skeleton-text animated style="width: 90%;"></ion-skeleton-text>
-                    </p>
-                </ion-label>
-            </ion-item>
-        </ion-list>
-<<<<<<< HEAD
-      </div> -->
-      
-=======
-    </div>
-
->>>>>>> bece9db17c6ffeca3d22a77fa4b0965554279326
 
 
 </ion-content>

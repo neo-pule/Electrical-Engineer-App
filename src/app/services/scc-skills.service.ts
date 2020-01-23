@@ -21,6 +21,8 @@ export class SCCSkillsService {
 
     private itemDoc: AngularFirestoreDocument<Item>; // < *class_name* >
 writePost;
+id;
+userDocRef;
 private booking=[];
 private data=[{
   category:'pizza',
@@ -38,8 +40,9 @@ private data=[{
 ];
 
   constructor(public afAuth: AngularFireAuth,private dog : AngularFirestore,private route : Router) { 
-    // s
-    // this.collRef = this.dog.collection('request', ref => ref.orderBy('service'));
+
+    
+    
   }
 
 
@@ -76,7 +79,7 @@ private data=[{
           // Handle Errors here.
           //var errorCode = error.code;  
         console.log(error + " added user succesful");
-        alert(item.email + " succesful registered" )
+        alert(item.email + " succesful registered" );
           this.route.navigateByUrl('/index');
         
     
@@ -87,22 +90,94 @@ private data=[{
       });
 
     }
+    getID(){
+      this.UserDoc().subscribe((data) => {
+
+        console.log(data+"  --- ")
+        for( let cat of data){
+          // console.log(cat.id)
+          this.id = cat.id;
+          console.log(this.id)
+        }
+      });
+      return this.id;
+
+      // return this.dog.collection('user/', response => response.where("email","==", firebase.auth().currentUser.email))
+      // .snapshotChanges().pipe(
+      //   map(actions => actions.map(a => {
+      //     const data = a.payload.doc.data() as any;
+      //     const id = a.payload.doc.id;
+      //     return { id, ...data };
+      //   }))
+      // );
+
+    }
+    viewRequest(id: string){
+      
+       return  this.dog.collection('user').doc(id).collection('request').valueChanges();
+     
+    }
+    UserDoc(){
+    // return  this.dog.collection('user').doc("6ZNu2FTxIpJfD2ghS7Tn").collection('request').snapshotChanges();
+    // console.log(this.userDocRef);
+    return this.dog.collection('user/', response => response.where("email","==", firebase.auth().currentUser.email))
+      .snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as any;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+     
+      // console.log(firebase.auth().currentUser.uid)
+      // return this.dog.collection("user/").doc("6hjRntnlqgb3UuZLk4HWyEtHAJK2").valueChanges();
+    }
 
     addRequest(item){
-      this.writePost = this.dog.collection<any>('user').doc('tvQVzZJtGU5H1xeOKDXQ').collection('request');
-      this.writePost.add(item).then(() =>{
-        console.log(item);
-        console.log("request added successful ..");
-        console.log(item.stamp);
-        console.log(item.description);
-       
+
+      this.UserDoc().subscribe((data) => {
+        for( let cat of data){
+          console.log(cat.id)
+          this.id = cat.id;
+          
+        }
+        console.log(this.id)
+        this.writePost = this.dog.collection('user/').doc(this.id).collection('request');
+        console.log(this.writePost)
+        this.writePost.add(item).then(() =>{
+          console.log(item);
+          console.log("request added successful ..");
+          console.log(item.stamp);
+          console.log(item.description);
+
       });
+    
+    });
+    
+      // this.writePost = this.dog.collection('user/').doc("6ZNu2FTxIpJfD2ghS7Tn").collection('request');
+      // console.log(this.writePost)
+      // this.writePost.add(item).then(() =>{
+      //   console.log(item);
+      //   console.log("request added successful ..");
+      //   console.log(item.stamp);
+      //   console.log(item.description);
+       
+      // });
+
+      // this.writePost = this.dog.collection<any>('user').doc(firebase.auth().currentUser.uid).collection('request');
+      // this.writePost.add(item).then(() =>{
+      //   console.log(item);
+      //   console.log("request added successful ..");
+      //   console.log(item.stamp);
+      //   console.log(item.description);
+       
+      // });
       // this.collRef.add(item).then((err) =>{
       //   console.log(err);
       //   console.log("sucessful")
       // });
-
-    }
+  }
+    
     getInfo(){
       return this.dog.collection('services/').snapshotChanges().pipe(
         map(actions => actions.map(a => {

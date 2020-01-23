@@ -19,8 +19,7 @@ export class MenuPage implements OnInit {
   constructor(private route : Router,private list : SCCSkillsService,private modalCtrl:ModalController) { 
     this.obj = this.list.getInfo();
     this.obj.subscribe(data => {
-      console.log(data);
-      console.log(data[0].key);
+   
       this.arr = data;
       console.log(this.arr);
     })

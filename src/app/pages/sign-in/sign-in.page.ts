@@ -9,6 +9,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthGuardService } from '../../services/auth-guard.service';
 import { SCCSkillsService } from '../../services/scc-skills.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { User,auth } from 'firebase';
+import * as firebase from 'firebase';
+
+
 // import { Subject } from 'rxjs';
 
 
@@ -33,27 +37,37 @@ export class SignInPage implements OnInit {
   temp2 : any;
   location ;
   day;
+  KM;
+  cost : number = 0;
+  ref;
 kkk;
   name;
   descrp;
 request = {
   day : "",
   stamp : Date.now(),
-  location: "",
-  time : 0
+  coords: [],
+  time : 0,
+  distance : 0,
+  transFee : 0,
+  type : ""
 
 }
 stamp = Date();
 
   tym;
-
-  constructor(private skill :SCCSkillsService,private fb: FormBuilder,public guards: AuthGuardService,private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
+  obj;
+arr;
+  constructor(public afAuth :AngularFireAuth,private skill :SCCSkillsService,private fb: FormBuilder,public guards: AuthGuardService,private route : Router,private map : MapService,private addr : ActivatedRoute,public popoverController: PopoverController,private modalCtrl:ModalController) { 
    
     this.loginForm = fb.group({
       day: ['', Validators.compose([Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'), Validators.required])],
       location: ['', Validators.compose([Validators.minLength(6), Validators.maxLength(12), Validators.required])],
     });
-
+   this.ref = (Math.random()* 100000).toFixed(0) + "AAC";
+    console.log(this.ref);
+    // console.log(User.curre);
+  
   }
   try(){
     console.log(this.tym)
@@ -78,32 +92,35 @@ stamp = Date();
   
   take(){
     // this.route.navigateByUrl('tab/request');
-    console.log(this.kkk);
-    // this.skill.addRequest(this.request);
-
+    // this.skill.UserDoc().subscribe((data) => {
+    //   console.log(data)
+    // });
+    // console.log(this.skill.UserDoc())
+    this.skill.addRequest(this.request);
+    // this.skill.UserDoc().subscribe((data) => {
+    //   console.log(data)
+    // });
 
   }
 
   ngOnInit() {
     this.addr.queryParams.subscribe(data => {
       console.log(data);
+      this.KM = data.KM;
 
-      this.temp = data.subject;
-      console.log(this.temp);
-
-      this.temp1 = data.message;
-      console.log(this.temp1);
-
-      this.temp2 = data.service;
-      console.log(this.temp2);
+      this.request.coords = [data.lng,data.lat];
+      console.log(this.request);
+      this.cost = this.KM * 5;
+     
     })
 
+    
     let name = localStorage.getItem("name");
     let description = localStorage.getItem("description")
-
+   
     this.name = name;
     this.descrp = description;
-    console.log(name+" -------- "+description)
+ 
   }
 
 }

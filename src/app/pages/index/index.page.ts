@@ -55,7 +55,7 @@ back(){
   this.route.navigateByUrl('/info');
 }
   ngOnInit() {
-    console.log("dfghjkl###############")
+
  
     // this.addr.queryParams.subscribe((data) => {
     //   this.kk = data

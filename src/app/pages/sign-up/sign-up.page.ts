@@ -52,6 +52,7 @@ export class SignUpPage implements OnInit {
     }, {
       //  validator: MustMatch('password', 'cpassword')
     });
+   
   }
 
   run(){

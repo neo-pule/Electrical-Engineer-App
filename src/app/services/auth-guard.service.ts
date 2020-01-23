@@ -20,7 +20,7 @@ export class AuthGuardService {
       if (user) {
         this.route.navigateByUrl('tab/sign-in')
       } else {
-        this.route.navigateByUrl('index')
+        // this.route.navigateByUrl('index')
       }
     })
   

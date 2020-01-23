@@ -1,5 +1,5 @@
 <ion-content>
-     <ion-list>
+     <ion-list *ngIf="afAuth.auth.currentUser; else logOut">
       <ion-list-header>
         <ion-label>Support</ion-label>
       </ion-list-header>
@@ -69,4 +69,9 @@
 
       </ion-item-sliding>
       </ion-list>
+
+      <ng-template #logOut >
+        <img src="../../../assets//default-profile.gif" style="height: 90%;">
+        <p><a (click)="runs()">Log in </a> to view Profile</p>
+      </ng-template>
 </ion-content>

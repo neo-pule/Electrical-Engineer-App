@@ -4,6 +4,7 @@ import mapboxgl from 'mapbox-gl';
 import { HttpClient } from '@angular/common/http';
 import { ModalController } from '@ionic/angular';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-map',
   templateUrl: './map.page.html',
@@ -18,8 +19,9 @@ export class MapPage implements OnInit {
   tempB : number;
   obj : any;
   geocoder : any;
+  KM : any;
 
-  constructor(private modalCtrl:ModalController,private maps : MapService,private http: HttpClient) { 
+  constructor(private modalCtrl:ModalController,private maps : MapService,private http: HttpClient,private router : Router) { 
     
   }
 
@@ -29,6 +31,11 @@ export class MapPage implements OnInit {
     this.modalCtrl.dismiss({
       'dismissed': true
     });
+
+    console.log("***")
+    let lng = this.obj.lng;
+    let lat = this.obj.lat;
+    this.router.navigate(['tab/sign-in'] ,{queryParams : {KM: this.KM, lng : lng, lat : lat}} );
   }
 
   ionViewDidEnter() {
@@ -220,7 +227,8 @@ function onDragEnd() {
       
       console.log(this.data)
       console.log(this.route)
-
+      this.KM = (this.data.distance/ 1000).toPrecision(2);
+      console.log( this.KM+ " KM")
     });
   }
   
